@@ -4,7 +4,7 @@
 - IN MEINEM NÄCHSTEN JOB WERDE ICH MINDESTENS gehalts_betrag währung VERDIENEN.
 
 ## LÖSUNG ## 
-- blau IST MEINE LIEBÖINGSFARBE;
+- blau IST MEINE LIEBLINGSFARBE;
 - IN MEINEM NÄCHSTEN JOB WERDE ICH MINDESTENS 2500_€ VERDIENEN
 
 
@@ -25,4 +25,14 @@
 - CREATE DATABASE partnervermitllung;
 - SHOW DATABASES;
 
+
+## ÜBUNG 13 ##
+Meine Mitarbeiter sollen **Filme** verwalten. Filme bestehen aus **Titel** und **Spieldauer**. Letztere wird in Minuten angegeben. Manche Leute interessieren sich auch für das Erscheinungsjahr. Außerdem wollen wir später eine Internetsuche anbieten, die es erlaubt, anhand des **Regisseurs** (**Name**, **Vorname** und **Geburtsdatum**) zu suchen. Zum gefundenen Film muss dann eine **Kurzbeschreibung** angezeigt werden. Im Moment ist es noch nicht wichtig, welcher Film von welchem Regisseur stammt. Meine Mitarbeiter sollen aber schon mal eine Liste von Regisseuren erfassen können.
+
+## Lösung ##
+Entity = Filme und Regisseur (Mitarbeiter)
+Attribute = Title, Spieldauer und Name, Vorname, Geburstag 
+
+Filme = {title, spieldauer}
+Regisseure = {Name, vorname, Geburstag}
 
