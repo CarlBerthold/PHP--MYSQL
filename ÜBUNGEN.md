@@ -36,3 +36,32 @@ Attribute = Title, Spieldauer und Name, Vorname, Geburstag
 Filme = {title, spieldauer}
 Regisseure = {Name, vorname, Geburstag}
 
+
+## üBUNG 26 ##
+## Wählen Sie geeignete Datentypen für jede Reihe von Werten. ##
+- 9, 17, 28, 45, 12, 9, 17 
+- 11.4, 7.3, 9.8, 99.2
+- 3, 4, 3467.278, 5, 6, 7, 8
+- 'Stefanie', 'Jan', 'Sabine', 'Michael', 'Udo', 'Sebastian', 'Katherina'
+- 0179534891, 00491721234, 091112345
+
+## LöSUNG ##
+- INTEGER
+- DECIMAL
+- DECIMAL(7.3)
+- VARCHAR(255)
+- VARCHAR(20)
+
+
+## ÜBUNG 27 ##
+# Notieren Sie folgende Zeitangaben im ANSI-Format #
+- August 23, 1923
+- 2.Dezember 1975
+- 11.September 2001 um 9:03
+
+## LÖSUNG ##
+- '1923-08-23'
+- '1975-02-12'
+- '2001-11-11 09:03'
+
+# ÜBUNG 29 ##
