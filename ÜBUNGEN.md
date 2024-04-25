@@ -70,3 +70,55 @@ Regisseure = {Name, vorname, Geburstag}
 
 ## SQL STATEMENT ÜBUNGEN ##
 [STATEMENTS](/queries.sql)
+
+
+
+## ÜBUNG 44 ##
+# Bestimmen Sie alle echten Teilmengen der angegebenen Headings #
+- {modell, hersteller, leistung_in_ps}
+- {wert, farbe}
+- {a, b, c}
+
+## LÖSUNG ##
+- {modell, hersteller}, {modell, leistung_in_ps}, {hersteller, modell}, {hersteller, leistung_in_ps}, {leistung_in_ps, modell}, {leistung_in_ps, hersteller}
+- {wert, farbe}, {farbe, wert}
+- {a, b}, {a, c}, {b, c}, {a}, {b}, {c}
+
+
+## Übung 45 ##
+# Schlüssel bestimmen #
+autor 	erscheinungs-datum 	isbn 	     itel
+C.J. Date 	01.09.2003 	978-0321197849 	Introduction to Database Systems
+C.J. Date 	15.11.2006 	978-1590597460 	Date on Database: Writings
+C.J. Date 	04.09.2001 	978-0201787221 	Introduction to Database Systems
+T. Powell 	14.07.2004 	978-0072253573 	JavaScript
+D. Gosselin 	07.09.2007 	978-1423901501 	JavaScript
+S. Meier 	01.01.2009 	978-9999999991 	Mathematik I
+S. Meier 	01.01.2009 	978-9999999992 	Mathematik I (Lösungsbuch)
+
+
+## LÖSUNG ##
+- buch = {autor, erscheinungsdatum, isbn, titel}
+## Teilmengen von buch ##
+
+- {autor}, {erscheinungsdatum}, {isbn}, {titel},
+
+- {autor, erscheinungsdatum}, {autor, isbn}, {autor, titel}, {erscheinungsdatum, isbn}, {erscheinungsdatum, titel}, {isbn, titel},
+
+- {erscheinungsdatum, isbn, titel}, {autor, isbn, titel}, {autor, erscheinungsdatum, titel}, {autor, erscheinungsdatum, isbn},
+
+- {autor, erscheinungsdatum, isbn, titel}
+
+## identifizierende Teilmengen von buch ##
+
+- {isbn},
+
+- {autor, isbn}, {erscheinungsdatum, isbn}, {isbn, titel},
+
+- {erscheinungsdatum, isbn, titel}, {autor, isbn, titel}, {autor, erscheinungsdatum, titel}, {autor, erscheinungsdatum, isbn},
+
+- {autor, erscheinungsdatum, isbn, titel}
+
+## irreduzible Teilmengen ##
+
+- {isbn}, {autor, erscheinungsdatum, titel}
