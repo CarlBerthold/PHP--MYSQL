@@ -65,3 +65,8 @@ Regisseure = {Name, vorname, Geburstag}
 - '2001-11-11 09:03'
 
 # ÜBUNG 29 ##
+
+
+
+## SQL STATEMENT ÜBUNGEN ##
+[STATEMENTS](/queries.sql)
