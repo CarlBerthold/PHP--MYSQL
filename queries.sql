@@ -1,6 +1,7 @@
 
 CREATE TABLE users (
-    id serial primary key,
+    id int primary key auto_increment,
+    salutation varchar(5) not null,
     surname varchar(50) not null,
     name varchar(50) not null,
     registered_since date not null,
@@ -9,12 +10,12 @@ CREATE TABLE users (
     birthday date not null
 );
 
-INSERT INTO users (id, surname, name, registered_since, email, password, birthday) 
+INSERT INTO users (id, salutation, surname, name, registered_since, email, password, birthday) 
     VALUES 
-        (1, 'Alice', 'Adams', '2024-04-22', 'alice.example@google.com', '12345', '1990-01-01'),
-        (2, 'Bob', 'Baker', '2024-04-23', 'bob.example@google.com', '54321', '1990-01-02'),
-        (3, 'Carl', 'Berthold', '2024-04-24', 'carl.examle@google.com', '12345', '1990-01-03'),
-        (4, 'Dave', 'Bronke', '2024-04-22', 'dave.examle@google.com', '54321', '1990-01-04');
+        (1, 'mrs', 'Alice', 'Adams', '2024-04-22', 'alice.example@google.com', '12345', '1990-01-01'),
+        (2, 'mr', 'Bob', 'Baker', '2024-04-23', 'bob.example@google.com', '54321', '1990-01-02'),
+        (3, 'mr', 'Carl', 'Berthold', '2024-04-24', 'carl.examle@google.com', '12345', '1990-01-03'),
+        (4, 'mr', 'Dave', 'Bronke', '2024-04-22', 'dave.examle@google.com', '54321', '1990-01-04');
 
 
 
@@ -32,7 +33,7 @@ VALUES (2, 'Peter', 'Jackson', '1961-10-31');
 
 
 CREATE TABLE seminare (
-    id int primary key AUTO_INCREMENT,
+    id int primary key AUTO_INCREMENT FIRST,
     title varchar(50) not null UNIQUE,
     description text not null,
     price decimal(10, 2) not null
@@ -50,15 +51,19 @@ INSERT INTO seminare (title, description, price)
 
 
 CREATE TABLE exercises (
-    id int primary key AUTO_INCREMENT,
-    title varchar(50) not null UNIQUE,
-    seminar_id int not null UNIQUE,
-    exercise_nr int not null UNIQUE,
-    description text not null,
-    difficulty Decimal(3,2) not null,
-    solution text not null,
+    `id` int primary key AUTO_INCREMENT FIRST,
+    `title` varchar(50) not null UNIQUE,
+    `seminar_id` int not null UNIQUE,
+    `exercise_nr` int not null UNIQUE,
+    `description` text not null,
+    `difficulty` Decimal(3,2) not null,
+    `solution` text not null,
     FOREIGN KEY (seminar_id) REFERENCES seminare(id)
 );
 
 benutze den Titel als alternativen Schlüssel hinzu:
 ALTER TABLE seminare MODIFY title VARCHAR(50) UNIQUE;
+
+ALTER TABLE users add salutation varchar(50);
+ALTER TABLE seminare ADD category varchar(50) not null;
+
