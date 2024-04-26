@@ -192,10 +192,10 @@ Entwickeln Sie SQL-Anweisungen zum Beantworten folgender Fragen:
 - Wie viele verschiedene Genres unterscheidet die Datenbank?
 
 
-
 ## LÖSUNG ##
 - SELECT COUNT(*) from movies;
 - SELECT MIN(duration) from movies where puublication_date >= '1995-01-01';
 - SELECT MAX(LENGTH(description)) from movies;
 - SELECT MAX(YEAR(NOW())-publication_date) from movies;
 - SELECT AVG(duration) from movies where genre = 'fantasy';
+- SELECT COUNT(DISTINCT genre) from movies;
