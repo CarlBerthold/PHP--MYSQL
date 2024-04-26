@@ -179,8 +179,6 @@ Geben Sie alle Filme mit Beschreibung aus, aber kürzen Sie die Beschreibung auf
 ## LÖSUNG ##
 SELECT description, concat(SUBSTR(description, 1, 20), '...') as short_description from movies;
 
-
-
 ## ÜBUNG 67 ##
 Entwickeln Sie SQL-Anweisungen zum Beantworten folgender Fragen:
 
@@ -194,8 +192,8 @@ Entwickeln Sie SQL-Anweisungen zum Beantworten folgender Fragen:
 
 ## LÖSUNG ##
 - SELECT COUNT(*) from movies;
-- SELECT MIN(duration) from movies where puublication_date >= '1995-01-01';
+- SELECT MIN(duration) from movies where publication_date >= '1995-01-01';
 - SELECT MAX(LENGTH(description)) from movies;
-- SELECT MAX(YEAR(NOW())-publication_date) from movies;
+- SELECT MAX(YEAR(NOW())-YEAR(publication_date)) as max_age from movies;
 - SELECT AVG(duration) from movies where genre = 'fantasy';
 - SELECT COUNT(DISTINCT genre) from movies;

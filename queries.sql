@@ -27,6 +27,19 @@ SELECT titel, beschreibung, kategorie FROM seminare WHERE (titel LIKE '%Adobe%' 
 /* SELECT with a expression and modify the result */
 SELECT title, price, price *1.19 as price_with_vat from seminare;
 
+
+/* SELECT the current Date */
+SELECT NOW();
+
+/* SELECT the current Year from now() */
+SELECT YEAR(NOW());
+
+/* SELECT the current Month from now() */
+SELECT MONTH(NOW());
+
+/* SELECT a Random number between 1 and 6 and floor it */
+SELECT FLOOR(RAND() * 6) +1;
+
 /* SELECT the age from the birthdate of the directors */
 SELECT name, (YEAR(NOW()) - YEAR(birthday)) as Age from directors;
 
@@ -36,17 +49,17 @@ SELECT description, concat(SUBSTR(description, 1, 20), '...') as short_descripti
 /* SELECT the numbers of movies */
 SELECT COUNT(*) from movies;
 
-/* SELECT the shortest duration of a movie where the publication_date is greater or even to '1995-01-01'*/
+/* SELECT the shortest duration of a movie where the publication_date is greater or even to '1995-01-01' */
 SELECT MIN(duration) from movies where publication_date >= '1995-01-01';
 
-/* SELECT the Longest description of all movies*/
+/* SELECT the Longest description of all movies */
 SELECT MAX(LENGTH(description)) from movies;
 
-/* SELECT the age from publication_date to now a show it as max_age from movies*/
+/* SELECT the age from publication_date to now a show it as max_age from movies */
 SELECT MAX(YEAR(NOW())-YEAR(publication_date)) as max_age from movies;
 
-/* SELECT the average duration of all movies where the genre is fantasy*/
+/* SELECT the average duration of all movies where the genre is fantasy */
 SELECT AVG(duration) from movies where genre = 'fantasy';
 
-/* SELECT the sum of all durations of all movies where the genre is fantasy*/
+/* SELECT the sum of all durations of all movies where the genre is fantasy */
 SELECT COUNT(DISTINCT genre) from movies;
