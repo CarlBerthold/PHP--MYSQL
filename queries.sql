@@ -37,7 +37,7 @@ SELECT YEAR(NOW());
 /* SELECT the current Month from now() */
 SELECT MONTH(NOW());
 
-/* SELECT a Random number between 1 and 6 and floor it */
+/* SELECT a Random number between 1 and 6 and floor it // add +1 bcs we dont want 0 in our result */
 SELECT FLOOR(RAND() * 6) +1;
 
 /* SELECT the age from the birthdate of the directors */
