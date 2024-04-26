@@ -62,3 +62,29 @@ INSERT INTO aviators(surname, name, birthday, flight_hours)
         ('Paul', 'Rudd', '1969-04-06', '100.00'),
         ('Brie', 'Larson', '1989-10-01', '89.00'),
         ('Evangeline', 'Lilly', '1979-08-03', '100.00');
+
+
+CREATE TABLE flights (
+    `id` int primary key AUTO_INCREMENT,
+    `flight_number` varchar(50) not null UNIQUE,
+    `airline_id` int not null,
+    `aviator_id` int not null,
+    `departure` varchar(50) not null,
+    `destination` varchar(50) not null,
+    `departure_time` datetime not null,
+    `arrival_time` datetime not null,
+    `price` decimal(10, 2) not null
+);
+
+
+INSERT INTO flights(flight_number, airline_id, aviator_id, departure, destination, departure_time, arrival_time, price)
+    VALUES 
+        ('DE1241', '1', '1', 'Frankfurt', 'Paris', '2024-04-22 12:00:00', '2024-04-22 14:00:00', '100.00'),
+        ('FR1241', '2', '2', 'Paris', 'London', '2024-04-22 15:00:00', '2024-04-22 17:00:00', '100.00'),
+        ('UK1241', '3', '3', 'London', 'Amsterdam', '2024-04-22 18:00:00', '2024-04-22 20:00:00', '100.00'),
+        ('NL1241', '4', '4', 'Amsterdam', 'Madrid', '2024-04-22 21:00:00', '2024-04-22 23:00:00', '100.00'),
+        ('ES1241', '5', '5', 'Madrid', 'Rome', '2024-04-22 12:00:00', '2024-04-22 14:00:00', '100.00'),
+        ('IT1241', '6', '6', 'Rome', 'Stockholm', '2024-04-22 15:00:00', '2024-04-22 17:00:00', '100.00'),
+        ('SE1241', '7', '7', 'Stockholm', 'Zurich', '2024-04-22 18:00:00', '2024-04-22 20:00:00', '100.00'),
+        ('CH1241', '8', '8', 'Zurich', 'Vienna', '2024-04-22 21:00:00', '2024-04-22 23:00:00', '100.00'),
+        ('AT1241', '9', '9', 'Vienna', 'Helsinki', '2024-04-22 12:00:00', '2024-04-22 14:00:00', '100.00');
