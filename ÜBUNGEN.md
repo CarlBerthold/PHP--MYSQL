@@ -122,3 +122,80 @@ S. Meier 	01.01.2009 	978-9999999992 	Mathematik I (Lösungsbuch)
 ## irreduzible Teilmengen ##
 
 - {isbn}, {autor, erscheinungsdatum, titel}
+
+
+
+## ÜBUNG 61 ##
+- Geben Sie alle Filme des Filmverleihs mit allen Spalten aus.
+- Geben Sie alle Filme mit titel und erscheinungsjahr aus.
+- Geben Sie alle Jahre aus, aus denen der Filmverleih Filme besitzt (ohne Doppelnennungen).
+- Geben Sie alle Filme aus, die 2002 oder nach 2002 erschienen sind.
+- Geben Sie alle Filme aus, die den Text Ring im Titel enthalten.
+- Geben Sie alle Filme aus, die den Text Ring im Titel enthalten und nicht vor 2002 erschienen sind.
+- Geben Sie alle Filme aus, die den Text Ring im Titel oder der Kurzbeschreibung enthalten.
+
+
+
+## LÖSUNG ##
+- SELECT * from movies;
+- SELECT title, publication_date from movies;
+- SELECT DISTINCT publication_date from movies;
+- SELECT * from movies where publication_date > '1995-01-01';
+- SELECT * from movies where title = '%RING%';
+- SELECT * from movies where (title = '%RING%') AND not publication_date < '2002-01-01';
+- SELECT * from movies where title = '%RING%' or description = '%RING%';
+
+
+## ÜBUNG 62 ##
+- CREATE TABLE users (id INTEGER PRIMARY KEY AUTO_INCREMENT, login VARCHAR(30), password VARCHAR(30));
+
+## LÖSUNG ##
+- INSERT INTO users (login, password) VALUES ('hello@login', 'adh1278da');
+- SELECT id from users where login = 'hello@login' and password = 'adh1278da';
+
+
+## ÜBUNG 63 ##
+- Geben Sie mit SQL die aktuelle Uhrzeit aus.
+- Geben Sie nur den aktuellen Monat aus.
+- Entwickeln Sie eine SQL-Anweisung, die einen Würfel simuliert. Bei jedem Aufruf soll eine zufällige Zahl zwischen 1 und 6 zurückgegeben werden.
+
+## LÖSUNG ##
+- SELECT NOW();
+- SELECT MONTH(NOW())´;
+- SELECT FLOOR(RAND() * 6) +1;
+
+
+
+
+## ÜBUNG 64 ##
+Geben Sie alle Regisseure mit ungefährem Alter aus. Sie müssen nur das Geburtsjahr berücksichtigen.
+
+## LÖSUNG ##
+SELECT name, (YEAR(NOW()) - YEAR(birthday)) as Age from directors;
+
+## ÜBUNG 65 ##
+Geben Sie alle Filme mit Beschreibung aus, aber kürzen Sie die Beschreibung auf 20 Zeichen und fügen Sie '…' an.
+
+## LÖSUNG ##
+SELECT description, concat(SUBSTR(description, 1, 20), '...') as short_description from movies;
+
+
+
+## ÜBUNG 67 ##
+Entwickeln Sie SQL-Anweisungen zum Beantworten folgender Fragen:
+
+- Wie viele Filme kennt die Datenbank?
+- Wie viele Minuten dauert der kürzeste Film seit dem Jahr 2002?
+- Aus wie vielen Zeichen besteht die längste Filmbeschreibung?
+- Wie alt ist der älteste Film?
+- Wie lange dauert ein Science-Fiction-Film im Durchschnitt?
+- Wie viele verschiedene Genres unterscheidet die Datenbank?
+
+
+
+## LÖSUNG ##
+- SELECT COUNT(*) from movies;
+- SELECT MIN(duration) from movies where puublication_date >= '1995-01-01';
+- SELECT MAX(LENGTH(description)) from movies;
+- SELECT MAX(YEAR(NOW())-publication_date) from movies;
+- SELECT AVG(duration) from movies where genre = 'fantasy';
