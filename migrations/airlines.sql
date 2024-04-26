@@ -31,3 +31,34 @@ INSERT INTO airlines(producer, country, founded, headquarters, max_seats, max_sp
         ('LOT', 'Poland', '1953-01-06', 'Warsaw', '300', '900', '10000.00'),
         ('Czech Airlines', 'Czech Republic', '1953-01-06', 'Prague', '300', '900', '10000.00'),
         ('Aeroflot', 'Russia', '1953-01-06', 'Moscow', '300', '900', '10000.00');
+
+
+
+CREATE TABLE aviators (
+    `id` int primary key AUTO_INCREMENT,
+    `surname` varchar(50) not null,
+    `name` varchar(50) not null,
+    `birthday` date not null,
+    `flight_hours` decimal(5,2)
+);
+
+
+INSERT INTO aviators(surname, name, birthday, flight_hours)
+    VALUES
+        ('Mel', 'Gibson', '1956-01-03', '999.00'),
+        ('Keanu', 'Reeves', '1964-09-02', '989.00'),
+        ('Tom', 'Hardy', '1977-09-15', '675.00'),
+        ('Hugh', 'Jackman', '1968-10-12', '141.00'),
+        ('Chris', 'Hemsworth', '1983-08-11', '120.00'),
+        ('Chris', 'Evans', '1981-06-13', '10.00'),
+        ('Chris', 'Pratt', '1979-06-21', '10.50'),
+        ('Robert', 'Downey', '1965-04-04', '23.10'),
+        ('Mark', 'Ruffalo', '1967-11-22', '76.00'),
+        ('Scarlett', 'Johansson', '1984-11-22', '98.00'),
+        ('Jeremy', 'Renner', '1971-01-07', '100.00'),
+        ('Tom', 'Holland', '1996-06-01', '101.00'),
+        ('Benedict', 'Cumberbatch', '1976-07-19', '12.00'),
+        ('Chadwick', 'Boseman', '1976-11-29', '1.00'),
+        ('Paul', 'Rudd', '1969-04-06', '100.00'),
+        ('Brie', 'Larson', '1989-10-01', '89.00'),
+        ('Evangeline', 'Lilly', '1979-08-03', '100.00');
