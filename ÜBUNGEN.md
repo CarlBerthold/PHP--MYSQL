@@ -1,5 +1,6 @@
 # ÜBUNG_9
-## Entwickeln Sie jeweils zwei Ausprägungen der folgenden BNF-Ausdrücke: ## 
+Entwickeln Sie jeweils zwei Ausprägungen der folgenden BNF-Ausdrücke
+
 - farbe IST MEINE LIEBLINGSFARBE.
 - IN MEINEM NÄCHSTEN JOB WERDE ICH MINDESTENS gehalts_betrag währung VERDIENEN.
 
@@ -9,9 +10,10 @@
 
 
 # ÜBUNG_10
-## Zeigen Sie erneut alle Datenbanken an.
-## Löschen Sie die Datenbank test.
-## Legen Sie folgende neuen Datenbanken an ## 
+Zeigen Sie erneut alle Datenbanken an.
+Löschen Sie die Datenbank test.
+Legen Sie folgende neuen Datenbanken an.
+
 - fluggesellschaften 
 - filmverleih 
 - partnerverleih
@@ -30,15 +32,15 @@
 Meine Mitarbeiter sollen **Filme** verwalten. Filme bestehen aus **Titel** und **Spieldauer**. Letztere wird in Minuten angegeben. Manche Leute interessieren sich auch für das Erscheinungsjahr. Außerdem wollen wir später eine Internetsuche anbieten, die es erlaubt, anhand des **Regisseurs** (**Name**, **Vorname** und **Geburtsdatum**) zu suchen. Zum gefundenen Film muss dann eine **Kurzbeschreibung** angezeigt werden. Im Moment ist es noch nicht wichtig, welcher Film von welchem Regisseur stammt. Meine Mitarbeiter sollen aber schon mal eine Liste von Regisseuren erfassen können.
 
 ## Lösung ##
-Entity = Filme und Regisseur (Mitarbeiter)
+Entity = Filme und Regisseur (Mitarbeiter)<br>
 Attribute = Title, Spieldauer und Name, Vorname, Geburstag 
 
 Filme = {title, spieldauer}
 Regisseure = {Name, vorname, Geburstag}
 
 
-## üBUNG 26 ##
-## Wählen Sie geeignete Datentypen für jede Reihe von Werten. ##
+## ÜBUNG 26 ##
+Wählen Sie geeignete Datentypen für jede Reihe von Werten.
 - 9, 17, 28, 45, 12, 9, 17 
 - 11.4, 7.3, 9.8, 99.2
 - 3, 4, 3467.278, 5, 6, 7, 8
@@ -54,7 +56,7 @@ Regisseure = {Name, vorname, Geburstag}
 
 
 ## ÜBUNG 27 ##
-# Notieren Sie folgende Zeitangaben im ANSI-Format #
+Notieren Sie folgende Zeitangaben im ANSI-Format
 - August 23, 1923
 - 2.Dezember 1975
 - 11.September 2001 um 9:03
@@ -69,12 +71,13 @@ Regisseure = {Name, vorname, Geburstag}
 
 
 ## SQL STATEMENT ÜBUNGEN ##
+Eine sammlung von queries zum testen und nachschlagen:<br>
 [STATEMENTS](/queries.sql)
 
 
 
 ## ÜBUNG 44 ##
-# Bestimmen Sie alle echten Teilmengen der angegebenen Headings #
+Bestimmen Sie alle echten Teilmengen der angegebenen Headings
 - {modell, hersteller, leistung_in_ps}
 - {wert, farbe}
 - {a, b, c}
@@ -87,39 +90,35 @@ Regisseure = {Name, vorname, Geburstag}
 
 ## Übung 45 ##
 # Schlüssel bestimmen #
-autor 	erscheinungs-datum 	isbn 	     itel
-C.J. Date 	01.09.2003 	978-0321197849 	Introduction to Database Systems
-C.J. Date 	15.11.2006 	978-1590597460 	Date on Database: Writings
-C.J. Date 	04.09.2001 	978-0201787221 	Introduction to Database Systems
-T. Powell 	14.07.2004 	978-0072253573 	JavaScript
-D. Gosselin 	07.09.2007 	978-1423901501 	JavaScript
-S. Meier 	01.01.2009 	978-9999999991 	Mathematik I
-S. Meier 	01.01.2009 	978-9999999992 	Mathematik I (Lösungsbuch)
+| Autor        | Erscheinungsdatum | ISBN           | Titel                              |
+|--------------|-------------------|----------------|------------------------------------|
+| C.J. Date    | 01.09.2003        | 978-0321197849 | Introduction to Database Systems   |
+| C.J. Date    | 15.11.2006        | 978-1590597460 | Date on Database: Writings         |
+| C.J. Date    | 04.09.2001        | 978-0201787221 | Introduction to Database Systems   |
+| T. Powell    | 14.07.2004        | 978-0072253573 | JavaScript                         |
+| D. Gosselin  | 07.09.2007        | 978-1423901501 | JavaScript                         |
+| S. Meier     | 01.01.2009        | 978-9999999991 | Mathematik I                       |
+| S. Meier     | 01.01.2009        | 978-9999999992 | Mathematik I (Lösungsbuch)         |
+
 
 
 ## LÖSUNG ##
 - buch = {autor, erscheinungsdatum, isbn, titel}
-## Teilmengen von buch ##
+### Teilmengen von buch ###
 
 - {autor}, {erscheinungsdatum}, {isbn}, {titel},
-
 - {autor, erscheinungsdatum}, {autor, isbn}, {autor, titel}, {erscheinungsdatum, isbn}, {erscheinungsdatum, titel}, {isbn, titel},
-
 - {erscheinungsdatum, isbn, titel}, {autor, isbn, titel}, {autor, erscheinungsdatum, titel}, {autor, erscheinungsdatum, isbn},
-
 - {autor, erscheinungsdatum, isbn, titel}
 
-## identifizierende Teilmengen von buch ##
+### identifizierende Teilmengen von buch ###
 
 - {isbn},
-
 - {autor, isbn}, {erscheinungsdatum, isbn}, {isbn, titel},
-
 - {erscheinungsdatum, isbn, titel}, {autor, isbn, titel}, {autor, erscheinungsdatum, titel}, {autor, erscheinungsdatum, isbn},
-
 - {autor, erscheinungsdatum, isbn, titel}
 
-## irreduzible Teilmengen ##
+### irreduzible Teilmengen ###
 
 - {isbn}, {autor, erscheinungsdatum, titel}
 
@@ -137,21 +136,40 @@ S. Meier 	01.01.2009 	978-9999999992 	Mathematik I (Lösungsbuch)
 
 
 ## LÖSUNG ##
-- SELECT * from movies;
-- SELECT title, publication_date from movies;
-- SELECT DISTINCT publication_date from movies;
-- SELECT * from movies where publication_date > '1995-01-01';
-- SELECT * from movies where title = '%RING%';
-- SELECT * from movies where (title = '%RING%') AND not publication_date < '2002-01-01';
-- SELECT * from movies where title = '%RING%' or description = '%RING%';
+```sql
+-- SELECT all columns from the "movies" table
+SELECT * FROM movies;
+
+-- SELECT only the "title" and "publication_date" columns from the "movies" table
+SELECT title, publication_date FROM movies;
+
+-- SELECT distinct publication dates from the "movies" table
+SELECT DISTINCT publication_date FROM movies;
+
+-- SELECT all columns from the "movies" table where publication_date is after '1995-01-01'
+SELECT * FROM movies WHERE publication_date > '1995-01-01';
+
+-- SELECT all columns from the "movies" table where the title contains 'RING'
+SELECT * FROM movies WHERE title LIKE '%RING%';
+
+-- SELECT all columns from the "movies" table where the title contains 'RING' and publication_date is not before '2002-01-01'
+SELECT * FROM movies WHERE title LIKE '%RING%' AND NOT publication_date < '2002-01-01';
+
+-- SELECT all columns from the "movies" table where the title or description contains 'RING'
+SELECT * FROM movies WHERE title LIKE '%RING%' OR description LIKE '%RING%';
+```
 
 
 ## ÜBUNG 62 ##
-- CREATE TABLE users (id INTEGER PRIMARY KEY AUTO_INCREMENT, login VARCHAR(30), password VARCHAR(30));
+``` sql 
+CREATE TABLE users (id INTEGER PRIMARY KEY AUTO_INCREMENT, login VARCHAR(30), password VARCHAR(30));
+```
 
 ## LÖSUNG ##
-- INSERT INTO users (login, password) VALUES ('hello@login', 'adh1278da');
-- SELECT id from users where login = 'hello@login' and password = 'adh1278da';
+``` sql
+INSERT INTO users (login, password) VALUES ('hello@login', 'adh1278da');
+SELECT id from users where login = 'hello@login' and password = 'adh1278da';
+```
 
 
 ## ÜBUNG 63 ##
@@ -160,9 +178,11 @@ S. Meier 	01.01.2009 	978-9999999992 	Mathematik I (Lösungsbuch)
 - Entwickeln Sie eine SQL-Anweisung, die einen Würfel simuliert. Bei jedem Aufruf soll eine zufällige Zahl zwischen 1 und 6 zurückgegeben werden.
 
 ## LÖSUNG ##
+```sql
 - SELECT NOW();
 - SELECT MONTH(NOW())´;
 - SELECT FLOOR(RAND() * 6) +1;
+```
 
 
 
@@ -171,13 +191,17 @@ S. Meier 	01.01.2009 	978-9999999992 	Mathematik I (Lösungsbuch)
 Geben Sie alle Regisseure mit ungefährem Alter aus. Sie müssen nur das Geburtsjahr berücksichtigen.
 
 ## LÖSUNG ##
+```sql
 SELECT name, (YEAR(NOW()) - YEAR(birthday)) as Age from directors;
+```
 
 ## ÜBUNG 65 ##
 Geben Sie alle Filme mit Beschreibung aus, aber kürzen Sie die Beschreibung auf 20 Zeichen und fügen Sie '…' an.
 
 ## LÖSUNG ##
+```sql
 SELECT description, concat(SUBSTR(description, 1, 20), '...') as short_description from movies;
+```
 
 ## ÜBUNG 67 ##
 Entwickeln Sie SQL-Anweisungen zum Beantworten folgender Fragen:
@@ -191,9 +215,11 @@ Entwickeln Sie SQL-Anweisungen zum Beantworten folgender Fragen:
 
 
 ## LÖSUNG ##
-- SELECT COUNT(*) from movies;
-- SELECT MIN(duration) from movies where publication_date >= '1995-01-01';
-- SELECT MAX(LENGTH(description)) from movies;
-- SELECT MAX(YEAR(NOW())-YEAR(publication_date)) as max_age from movies;
-- SELECT AVG(duration) from movies where genre = 'fantasy';
-- SELECT COUNT(DISTINCT genre) from movies;
+``` sql
+SELECT COUNT(*) from movies;
+SELECT MIN(duration) from movies where publication_date >= '1995-01-01';
+SELECT MAX(LENGTH(description)) from movies;
+SELECT MAX(YEAR(NOW())-YEAR(publication_date)) as max_age from movies;
+SELECT AVG(duration) from movies where genre = 'fantasy';
+SELECT COUNT(DISTINCT genre) from movies;
+```
