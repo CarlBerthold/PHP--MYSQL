@@ -63,3 +63,7 @@ SELECT AVG(duration) from movies where genre = 'fantasy';
 
 /* SELECT the sum of all durations of all movies where the genre is fantasy */
 SELECT COUNT(DISTINCT genre) from movies;
+
+
+/* SELECT and Join from two tables  */
+SELECT seminare.title, seminare.price, appointments.appointment_beginn, appointments.appointment_end from seminare join appointments on seminar_id = appointments.seminar_id;
