@@ -223,3 +223,23 @@ SELECT MAX(YEAR(NOW())-YEAR(publication_date)) as max_age from movies;
 SELECT AVG(duration) from movies where genre = 'fantasy';
 SELECT COUNT(DISTINCT genre) from movies;
 ```
+
+## ÜBUNG 68 ##
+Die Spieldauer des Films Toy Story ist mit 180 Minuten falsch angegeben. Ändern Sie sie auf 152 Minuten.
+
+## LÖSUNG ##
+``` sql
+UPDATE movies SET duration = 152.00 where title = 'Toy Story';
+```
+
+
+## ÜBUNG 69 ##
+Alle Filme, die von 1998 und älter sind, werden aus dem Programm genommen. Löschen Sie sie!
+
+
+## LÖSUNG ##
+``` sql
+DELETE FROM movies WHERE publication_date <= '1998-01-01';
+```
+
+

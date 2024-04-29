@@ -43,22 +43,29 @@ INSERT INTO exercises (title, seminar_id, exercise_nr, description, difficulty, 
         ('JAVA', 6, 1, 'Java ist eine objektorientierte Programmiersprache und eine eingetragene Marke des Unternehmens Sun Microsystems', 1.00, 'Java ist eine objektorientierte Programmiersprache.');
 
 
-
-CREATE TABLE users (
-    `id` int primary key auto_increment,
-    `salutation` varchar(5) not null,
-    `surname` varchar(50) not null,
-    `name` varchar(50) not null,
-    `registered_since` date not null,
-    `email` varchar(50) not null,
-    `password` varchar(50) not null,
-    `birthday` date not null
+CREATE TABLE appointments (
+    `id` int primary key AUTO_INCREMENT,
+    `seminar_id` int not null,
+    `room` VARCHAR(50) not null,
+    `appointment_beginn` date not null,
+    `appointment_end` date not null
 );
 
 
-INSERT INTO users (salutation, surname, name, registered_since, email, password, birthday) 
+INSERT INTO appointments (seminar_id, room, appointment_beginn, appointment_end)
     VALUES 
-        ('mrs', 'Alice', 'Adams', '2024-04-22', 'alice@example.com', '12345', '1990-01-01'),
-        ('mr', 'Bob', 'Baker', '2024-04-23', 'bob@example.com', '54321', '1990-01-02'),
-        ('mr', 'Carl', 'Berthold', '2024-04-24', 'carl@example.com', '12345', '1990-01-03'),
-        ('mrs', 'Diana', 'Doe', '2024-04-25', 'diana@example.com', '54321', '1990-01-04');
+        (1, 'Aula', '2024-04-22', '2024-04-23'),
+        (2, 'Zentrale', '2024-04-23', '2024-04-24'),
+        (3, 'Quergebäude', '2024-04-24', '2024-04-25'),
+        (4, 'Halle', '2024-04-25', '2024-04-26'),
+        (5, 'Raum 3', '2024-04-26', '2024-04-27'),
+        (6, 'Bolzplatz', '2024-04-27', '2024-04-28'),
+        (7, 'Aula', '2024-04-28', '2024-04-29');
+
+
+CREATE TABLE attendees (
+    `appointment_id` int not null,
+    `user_id` int not null,
+    PRIMARY KEY (appointment_id, user_id)
+    
+);
