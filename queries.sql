@@ -65,10 +65,13 @@ SELECT AVG(duration) from movies where genre = 'fantasy';
 SELECT COUNT(DISTINCT genre) from movies;
 
 /* SELECT and Join from two tables  */
-SELECT seminare.title, seminare.price, appointments.appointment_beginn, appointments.appointment_end from seminare join appointments on seminar_id = appointments.seminar_id;
+SELECT seminare.title, seminare.price, appointments.appointment_beginn, appointments.appointment_end from seminare JOIN appointments on seminar_id = appointments.seminar_id;
+SELECT movies.title, publication_date, genre, directors.name FROM movies JOIN directors ON movies.director_id = directors.id;
 
 
+/* SELECT and Join two tables with pivot table    */
 SELECT appointments.appointment_beginn, appointments.appointment_end, appointments.room, users.surname, users.name 
         from appointments join attendees 
         on appointments.id = attendees.appointment_id join users 
         on attendees.user_id = users.id;
+
