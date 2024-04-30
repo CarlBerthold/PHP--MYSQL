@@ -76,13 +76,26 @@ SELECT appointments.appointment_beginn, appointments.appointment_end, appointmen
         on attendees.user_id = users.id;
 
 
-
+/* SELECT participant from a location FREIBURG */
 SELECT COUNT(1) from participant where location LIKE '%Freiburg'LIMIT 100
 
+/* SELECT all Locations */
 SELECT location from participant GROUP BY location;
 
+/* SELECT location and count participants, group them DESC */
 SELECT location, COUNT(1) from participant GROUP BY location DESC;
 
+/* SELECT and group */
+SELECT location from participant GROUP BY location LIMIT 100;
 
-SELECT location from participant GROUP BY location LIMIT 100
-SELECT location, COUNT(location) AS count from participant GROUP BY location ORDER BY count LIMIT 100
+/* SELECT and count participant from different locations */
+SELECT location, COUNT(location) AS count from participant GROUP BY location ORDER BY count LIMIT 100;
+
+/* SELECT and count participant from different locations using a list wihtin where*/
+SELECT location, COUNT(location) AS count from participant WHERE location in ('GFN GmbH Hamburg', 'GFN GmbH München', 'GFN GmbH Jena', 'GFN GmbH Karlsruhe', 'GFN GmbH Halle', 'GFN GmbH Freiburg')GROUP BY location LIMIT 100;
+
+/* using having to group the result again // having is the Where just for Group by */
+SELECT location, count(location) from participant GROUP BY location HAVING count(location) > 3 LIMIT 100;
+
+/* SELECT ALL PARTICIPANTS FROM ALL LOCATION EXT / INT */
+SELECT * from participant_ext UNION SELECT * FROM participant group by lastname LIMIT 100;
