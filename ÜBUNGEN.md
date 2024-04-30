@@ -243,3 +243,41 @@ DELETE FROM movies WHERE publication_date <= '1998-01-01';
 ```
 
 
+## ÜBUNG 71 ##
+- Geben Sie alle Filme nach Titel sortiert aus.
+- Geben Sie alle Filme nach Spieldauer sortiert aus. Dabei soll der längste Film zuerst erscheinen und der kürzeste zuletzt.
+- Geben Sie alle Filme in der Reihenfolge ihres Erscheinens aus. Falls in einem Jahr mehrere Filme vorhanden sind, so müssen diese innerhalb des Jahres noch alphabetisch sortiert werden.
+
+
+## LÖSUNG ##
+``` sql
+SELECT * FROM movies ORDER BY title;
+SELECT * FROM movies ORDER BY duration DESC;
+SELECT * FROM movies ORDER BY Publication_date, title;
+```
+
+
+
+## ÜBUNG 72 ##
+geben sie Filme mit LIMIT aus
+
+
+## LÖSUNG ##
+``` sql
+SELECT * FROM movies ORDER BY publication_date >= 2000 LIMIT 2
+```
+
+
+
+## ÜBUNG 74 ##
+- Geben Sie alle Filme aus, bei denen keine Spieldauer angegeben ist.
+- Geben Sie alle Filme nach Spieldauer sortiert aus. Filme, die keine Spieldauer haben, sollen in dieser Auflistung nicht erscheinen.
+
+
+## LÖSUNG ##
+``` sql
+SELECT * FROM movies WHERE duration IS NULL;
+SELECT * FROM movies WHERE duration IS NOT NULL ORDER BY duration;
+```
+
+
