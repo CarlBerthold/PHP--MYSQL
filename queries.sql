@@ -118,3 +118,12 @@ SELECT * from t_left INNER JOIN t_right;
 
 /* JOIN with on codition on result, find foreign key */
 SELECT * FROM t_left JOIN t_right ON t_right.t_left_id = t_left.id;
+
+SELECT * FROM t_left LEFT JOIN t_right ON t_right.t_left_id = t_left.id;
+
+
+
+SELECT * FROM parents LEFT JOIN childrens ON parents.id = childrens.parent_id WHERE parents.husband IS NOT NULL AND parents.wife IS NOT NULL LIMIT 100
+
+/* INNER JOIN => JOIN */
+SELECT * FROM parents JOIN childrens ON parents.id = childrens.parent_id WHERE parents.husband IS NOT NULL and parents.wife IS NOT NULL LIMIT 100
