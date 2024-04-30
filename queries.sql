@@ -99,3 +99,22 @@ SELECT location, count(location) from participant GROUP BY location HAVING count
 
 /* SELECT ALL PARTICIPANTS FROM ALL LOCATION EXT / INT */
 SELECT * from participant_ext UNION SELECT * FROM participant group by lastname LIMIT 100;
+
+
+/* SELECT a Union from two tables that have the same columns */
+SELECT location, count(location) FROM participant
+GROUP BY location
+UNION
+SELECT city, count(city) FROM participant_ext
+GROUP BY city;
+
+
+/* SELECT as Kreuztabelle nicht als UNION */
+SELECT * FROM t_left,t_right;
+
+SELECT * from t_left JOIN t_right;
+
+SELECT * from t_left INNER JOIN t_right;
+
+/* JOIN with on codition on result, find foreign key */
+SELECT * FROM t_left JOIN t_right ON t_right.t_left_id = t_left.id;

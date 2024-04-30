@@ -67,5 +67,15 @@ CREATE TABLE attendees (
     `appointment_id` int not null,
     `user_id` int not null,
     PRIMARY KEY (appointment_id, user_id)
-    
 );
+
+
+INSERT INTO attendees (appointment_id, user_id)
+    VALUES 
+        (1, 1),
+        (2, 2),
+        (3, 3),
+        (4, 4),
+        (5, 1),
+        (6, 2),
+        (7, 3);
