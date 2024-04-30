@@ -71,7 +71,18 @@ SELECT movies.title, publication_date, genre, directors.name FROM movies JOIN di
 
 /* SELECT and Join two tables with pivot table    */
 SELECT appointments.appointment_beginn, appointments.appointment_end, appointments.room, users.surname, users.name 
-        from appointments join attendees 
+        from appointments join attendees
         on appointments.id = attendees.appointment_id join users 
         on attendees.user_id = users.id;
 
+
+
+SELECT COUNT(1) from participant where location LIKE '%Freiburg'LIMIT 100
+
+SELECT location from participant GROUP BY location;
+
+SELECT location, COUNT(1) from participant GROUP BY location DESC;
+
+
+SELECT location from participant GROUP BY location LIMIT 100
+SELECT location, COUNT(location) AS count from participant GROUP BY location ORDER BY count LIMIT 100
