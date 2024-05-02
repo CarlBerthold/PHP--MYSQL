@@ -39,7 +39,7 @@ echo $foo;
     <title>Hello PHP</title>
 </head>
 <body>
-    <h1  style="color:green;"><?php echo "Hello1" ?></h1>
+    <h1  style="color:green;"><?php echo "Hello1"; ?></h1>
 
     <h1 style="color:blue;"><?php echo "Hello2"; ?></h1>
 
@@ -50,9 +50,9 @@ echo $foo;
 
     <!-- attention how the string with simple quotes are not the value from the variable -->
 
-    <h1 style="color:lightred;"><?php echo "$foobar . '$foobar' "; ?></h1>
-    <h1 style="color:lightred;"><?php echo "$foobar" . '$foobar' ; ?></h1>
-    <h1 style="color:lightred;"><?php echo '$foobar . "$foobar" '; ?></h1>
+    <h1 style="color:lightred;"><?php echo "$foobar . '$foobar'"; ?></h1>
+    <h1 style="color:lightred;"><?php echo "$foobar" . '$foobar'; ?></h1>
+    <h1 style="color:lightred;"><?php echo '$foobar . "$foobar"'; ?></h1>
 
 
 
