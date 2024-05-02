@@ -15,7 +15,7 @@ $foobar = 'foobarbaz';
 echo $foo;
 
 ?>
-<!-- will be interpreted bcs .php will deliver HTML with <?php for executable php code ?> -->
+<!-- will be interpreted bcs .php will deliver HTML with ?php for executable php code ?> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,10 +25,25 @@ echo $foo;
     <title>Hello PHP</title>
 </head>
 <body>
-    <?php echo "Hello" ?>
+    <h1  style="color:green;"><?php echo "Hello1" ?></h1>
 
-    <h1><?php echo "Hello"; ?></h1>
-    <h1>test</h1>
-    <h1><?php echo "Hello"; ?></h1>
+    <h1 style="color:blue;"><?php echo "Hello2"; ?></h1>
+
+    <h1 style="color:lightblue;">test</h1>
+
+    <h1 style="color:lightgreen;"><?php echo "Hello3"; ?></h1>
+
+
+
+    <?php 
+
+        echo $greeting;
+        echo 1 + 1;
+        echo 1 . $greeting;
+        echo 2 * 3 . $greeting;    
+    
+    ?>
+
+
 </body>
 </html>
