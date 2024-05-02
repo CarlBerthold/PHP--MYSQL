@@ -123,7 +123,14 @@ SELECT * FROM t_left LEFT JOIN t_right ON t_right.t_left_id = t_left.id;
 
 
 
-SELECT * FROM parents LEFT JOIN childrens ON parents.id = childrens.parent_id WHERE parents.husband IS NOT NULL AND parents.wife IS NOT NULL LIMIT 100
+SELECT * FROM parents LEFT JOIN childrens ON parents.id = childrens.parent_id WHERE parents.husband IS NOT NULL AND parents.wife IS NOT NULL LIMIT 100;
+
+/* RIGHT JOIN => JOIN select every child and their parents*/
+SELECT * FROM parents RIGHT JOIN childrens ON parents.id = childrens.parent_id LIMIT 100;
 
 /* INNER JOIN => JOIN */
-SELECT * FROM parents JOIN childrens ON parents.id = childrens.parent_id WHERE parents.husband IS NOT NULL and parents.wife IS NOT NULL LIMIT 100
+SELECT * FROM parents JOIN childrens ON parents.id = childrens.parent_id WHERE parents.husband IS NOT NULL and parents.wife IS NOT NULL LIMIT 100;
+
+
+SELECT * FROM parents LEFT JOIN childrens ON parents.id = childrens.parent_id WHERE childrens.parent_id IS NULL LIMIT 100;
+SELECT * FROM parents LEFT JOIN childrens ON parents.id = childrens.parent_id WHERE childrens.parent_id IS NULL LIMIT 100;

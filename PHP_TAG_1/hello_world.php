@@ -74,5 +74,25 @@ echo $foo;
     ?>
 
 
+<?php
+
+$weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+foreach ($weekdays as $day) {
+    echo("<li>$day</li>");
+}
+
+$weekdays = 'Monday';
+$weekdays .= ', Tuesday';
+$weekdays .= ', Wednesday';
+$weekdays .= ', Thursday';
+$weekdays .= ', Friday';
+$weekdays .= ', Saturday';
+$weekdays .= ', Sunday';
+
+echo $weekdays;
+
+?>
+
 </body>
 </html>
