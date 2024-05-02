@@ -61,8 +61,10 @@ echo $foo;
         echo $greeting;
         echo 1 + 1;
         echo 1 . $greeting . "\n";
-        echo 2 * 3 . $greeting;    
-    
+        echo 2 * 3 . $greeting;
+        echo 2 ** 2; // 2^2 = 4
+        echo 2 ** 6; // 2^6 = 64
+        echo 2 ** 3; // 2^3 = 8
     ?>
 
     <?php
