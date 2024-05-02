@@ -15,6 +15,20 @@ $foobar = 'foobarbaz';
 echo $foo;
 
 ?>
+
+
+<!-- attention $foobar is assigned to a variable &$foo that holds baz and echoing baz egain -->
+<?php 
+
+$foo = 'bar';
+$foobar = &$foo;
+$foo = 'baz';
+$foobar = 'foobarbaz';
+
+echo $foo;
+
+?>
+
 <!-- will be interpreted bcs .php will deliver HTML with ?php for executable php code ?> -->
 
 <!DOCTYPE html>
@@ -39,9 +53,15 @@ echo $foo;
 
         echo $greeting;
         echo 1 + 1;
-        echo 1 . $greeting;
+        echo 1 . $greeting . "\n";
         echo 2 * 3 . $greeting;    
     
+    ?>
+
+    <?php
+    $linkName = 'Send';
+    $targetName = 'test.php';
+    $placeholder = 'insert text';
     ?>
 
 
