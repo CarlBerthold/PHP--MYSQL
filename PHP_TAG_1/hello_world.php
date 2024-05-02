@@ -48,6 +48,13 @@ echo $foo;
     <h1 style="color:lightgreen;"><?php echo "Hello3"; ?></h1>
 
 
+    <!-- attention how the string with simple quotes are not the value from the variable -->
+
+    <h1 style="color:lightred;"><?php echo "$foobar . '$foobar' "; ?></h1>
+    <h1 style="color:lightred;"><?php echo "$foobar" . '$foobar' ; ?></h1>
+    <h1 style="color:lightred;"><?php echo '$foobar . "$foobar" '; ?></h1>
+
+
 
     <?php 
 
