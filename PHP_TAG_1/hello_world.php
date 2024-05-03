@@ -71,6 +71,10 @@ echo $foo;
     $linkName = 'Send';
     $targetName = 'test.php';
     $placeholder = 'insert text';
+
+    $name = pi();
+
+    echo $name;
     ?>
 
 
