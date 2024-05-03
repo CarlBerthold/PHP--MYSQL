@@ -23,6 +23,8 @@ echo($largeNumber);
 
 
 // STRINGS mit Anführungszeichen //
+// attention how the string with simple quotes are not the value from the variable
+// escape character \ to use the same quotes in the string
 
 
 // echo "Niclas said: "I really like PHP""; // Syntax Error
