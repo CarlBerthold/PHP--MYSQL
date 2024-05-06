@@ -56,7 +56,8 @@ echo $addition;
 echo PHP_EOL;
 
 // Modulooperator
-$modulo = 141 % 13;
+// $modulo = 141 % 13;
+$modulo = 141 % 13.7;
 
 echo $modulo;
 echo PHP_EOL;
