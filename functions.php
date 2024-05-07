@@ -53,30 +53,46 @@ function greet($name) : string
  * @param string $salutation
  * @return string
  */
-function greet_salutation($name, $salutation = 'Mr.') : string
+function greeting($name, $salutation = 'Mr.') : string
 {
-    echo $name . $salutation;
+    // global $name; dont use global variables sideeffects global declares a variable with NULL
+    echo $salutation . ' ' . $name;
     return $salutation . ' ' . $name;
 }
 
+$name = 'Carl';
+greeting('John');
 
-greet_salutation('John');
 
+/**
+ * Undocumented function
+ *
+ * @return void
+ */
 function test() 
 {
     echo 'Hello';
-    return 'Hello';
+    // return 'Hello';
 }
+
+/**
+ * Undocumented function
+ * 
+ * @return void
+*/
 
 function test2() 
 {
     echo 'world';
-    return 'Hello';
+    // return 'Hello';
 }
 
 
-
-// Call a function wihtin another function
+/**
+ * Undocumented function
+ *
+ * @return void
+ */
 function functionCallInFunction()
 {
    test();
@@ -87,4 +103,23 @@ function functionCallInFunction()
 functionCallInFunction();
 
 
+/**
+ * nested function outer() needs to be called first to declare inner(), before calling outer() inner() will not exist
+ *
+ * @return void
+ */
+function outer()
+{
+    function inner()
+    {
+        echo 'function inner()', PHP_EOL;
+    }
+    inner();
+    echo 'function outer()', PHP_EOL;
+}
 
+
+outer();
+var_dump(function_exists('inner'));
+inner();
+outer();
