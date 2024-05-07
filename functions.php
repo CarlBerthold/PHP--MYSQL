@@ -1,6 +1,12 @@
 <?php
 
-function dd($args) 
+/**
+ * die and dump
+ *
+ * @param mixed $args
+ * @return void
+ */
+function dd($args) : void
 {
     echo '<pre>';
     var_dump($args);
@@ -8,27 +14,33 @@ function dd($args)
     die();
 }
 
-function dump($args) 
+/**
+ * Undocumented function
+ *
+ * @param mixed $args
+ * @return void
+ */
+function dump($args) : void
 {
     echo '<pre>';
     var_dump($args);
     echo '</pre>';
 }
 
+/**
+ * gehoistete Funktion
+ */
 $chips = ['5 tüten chips', '3 Flaschen Limonade'];
-
 dump($chips);
-
-// gehoistete Funktion
 greet('Carl');
 
 /**
  * Undocumented function
  *
- * @param [type] $name
- * @return void
+ * @param string $name
+ * @return string
  */
-function greet($name) 
+function greet($name) : string
 {
     echo 'Hello ' . $name;
     return 'Hello ' . $name;
@@ -37,11 +49,11 @@ function greet($name)
 /**
  * Undocumented function
  *
- * @param [type] $name
+ * @param string $name 
  * @param string $salutation
- * @return void
+ * @return string
  */
-function greet_salutation($name, $salutation = 'Mr.') 
+function greet_salutation($name, $salutation = 'Mr.') : string
 {
     echo $name . $salutation;
     return $salutation . ' ' . $name;
