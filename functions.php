@@ -14,18 +14,7 @@ function dd($args) : void
     die();
 }
 
-/**
- * Undocumented function
- *
- * @param mixed $args
- * @return void
- */
-function dump($args) : void
-{
-    echo '<pre>';
-    var_dump($args);
-    echo '</pre>';
-}
+
 
 /**
  * gehoistete Funktion
@@ -56,6 +45,8 @@ function greet($name) : string
 function greeting($name, $salutation = 'Mr.') : string
 {
     // global $name; dont use global variables sideeffects global declares a variable with NULL
+    // var_dump($GLOBALS); // associative array with all global variables
+    // var_dump($GLOBALS['name']); // access global variable
     echo $salutation . ' ' . $name;
     return $salutation . ' ' . $name;
 }
@@ -123,3 +114,48 @@ outer();
 var_dump(function_exists('inner'));
 inner();
 outer();
+
+
+/**
+ * Undocumented function
+ *
+ * @param mixed $args
+ * @return void
+ */
+function dump($args) : void
+{
+    echo '<pre>';
+    var_dump($args);
+    echo '</pre>';
+}
+
+dump($GLOBALS);
+
+
+/**
+ * Undocumented function
+ *
+ * @param string $firstname
+ * @param string $lastname
+ * @param string $greeting
+ * @param string $salutation
+ * @return void
+ */
+function sayHello($firstname, $lastname, $greeting, $salutation = 'Mrs') : void
+{
+    echo $greeting . $firstname . ' ' . $lastname;
+    echo $salutation . $firstname . ' ' . $lastname;
+}
+
+sayHello('Carl', 'Cracker', 'Hello ', 'Mr. ');
+sayHello('Carla', 'Cracker', 'Hi ', 'Mrs');
+sayHello('Daisy', 'Duck', 'Hi ', 'Mrs. ');
+
+
+function sum($value1, $value2) : void
+{
+    $result = $value1 + $value2;
+    echo $result;
+}
+
+sum(33, 56);
