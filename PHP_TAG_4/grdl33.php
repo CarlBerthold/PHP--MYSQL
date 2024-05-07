@@ -1,5 +1,5 @@
 <?php
-require 'functions.php';
+require __DIR__ . '/functions.php';
 
 
 // dynamic converting from types with arithmetic operators
