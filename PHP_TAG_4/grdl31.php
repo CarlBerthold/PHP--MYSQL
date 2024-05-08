@@ -20,3 +20,4 @@ var_dump((int) (10/3));
 
 settype($test, 'array');
 var_dump($test);
+

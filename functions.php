@@ -129,7 +129,6 @@ function dump($args) : void
     echo '</pre>';
 }
 
-
 dump($GLOBALS);
 
 

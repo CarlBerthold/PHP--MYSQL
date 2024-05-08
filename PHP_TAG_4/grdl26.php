@@ -26,7 +26,7 @@ $var8 = true;
 // Datentyp Boolean
 $var9 = false;
 
-var_dump(is_string($var1));
+/* var_dump(is_string($var1));
 var_dump(is_string($var2));
 var_dump(is_string($var3));
 var_dump(is_string($var4));
@@ -34,6 +34,6 @@ var_dump(is_string($var5));
 var_dump(is_string($var6));
 var_dump(is_string($var7));
 var_dump(is_string($var8));
-var_dump(is_string($var8));
+var_dump(is_string($var8)); */
 
 var_dump($var1, $var2, $var3, $var4, $var5, $var6, $var7, $var8, $var9);
