@@ -53,3 +53,7 @@ var_dump(FALSE && ausgabe());
 
 // logical Terror
 var_dump(((true && false || (int)'Hallo' * 0 && !5 - 14 * (int)'2 Bier!') * 10) !== true);
+
+echo ((true && false || (int)'Hallo' * 0 && !5 - 14 * (int)'2 Bier!') * 10) !== true;
+
+
