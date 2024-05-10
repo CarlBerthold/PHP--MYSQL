@@ -5,17 +5,17 @@ $password = '$!§{dq_#+1|1'; // mindestens 8 Zeichen, maximal 15 Zeichen
 function validate($value) : string
 {
     if (empty($value)) {
-        echo 'Passwort darf nicht leer sein';
-        return 'Passwort darf nicht leer sein';
+        echo 'password should not be empty';
+        return 'password should not be empty';
     } else if (strlen($value) < 8) {
-        echo 'Passwort muss mindestens 8 Zeichen lang sein';
-        return 'Passwort muss mindestens 8 Zeichen lang sein';
+        echo 'password should be at least 8 characters long';
+        return 'password should be at least 8 characters long';
     } else if (strlen($value) > 15) {
-        echo 'Passwort darf maximal 15 Zeichen lang sein';
-        return 'Passwort darf maximal 15 Zeichen lang sein';
+        echo 'password should be at most 15 characters long';
+        return 'password should be at most 15 characters long';
     } else {
-        echo 'Passwort ist gültig';
-        return 'Passwort ist gültig';
+        echo 'password is valid';
+        return 'password is valid';
     }
 }
 

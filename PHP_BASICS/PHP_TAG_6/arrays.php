@@ -54,12 +54,12 @@ array_push($visitors); // adds an element to the end of the array
 echo in_array('Vasil', $visitors[2]), PHP_EOL; // returns true if the value is in the array
 echo $visitors[0]['name'];
 
-// array
+// array indexed 
 $fruits = [
-    'cherry', 
-    'banana', 
-    'apple', 
-    'orange'
+    'cherry', // index 1
+    'banana', // index 2
+    'apple', // index 3
+    'orange' // index 4
 ];
 
 // sorting Ascending to the value of the array
@@ -69,10 +69,10 @@ var_dump($fruits);
 
 // associative array
 $associativeFruits = [
-    'c' => 'cherry', 
-    'b' => 'banana', 
-    'a' => 'apple', 
-    'o' => 'orange'
+    'c' => 'cherry', // c is the key
+    'b' => 'banana', // b is the key
+    'a' => 'apple', // a is the key
+    'o' => 'orange' // o is the key
 ];
 
 sort($associativeFruits); // sort by value

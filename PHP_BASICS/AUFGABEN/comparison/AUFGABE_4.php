@@ -9,8 +9,8 @@
 function compareNumbers($number1, $number2)
 {
     if (!is_numeric($number1) || !is_numeric($number2)) {
-        echo 'Bitte nur Zahlenwerte eingeben';
-        return;
+        echo 'please provide a numeric value only';
+        return 'please provide a numeric value only';
     }
 
     if ($number1 < $number2) {
