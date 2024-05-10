@@ -12,4 +12,7 @@ function my_str_starts_with($haystack, $needle) :bool
     return substr($haystack, 0, strlen($needle)) === $needle;
 }
 
-echo gettype(my_str_starts_with('Hallo Welt', 'Hal'));
+// echo gettype(my_str_starts_with('Hallo Welt', 'Hal'));
+
+
+echo my_str_starts_with('Hallo Welt', 'Hal');

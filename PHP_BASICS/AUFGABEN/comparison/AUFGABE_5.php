@@ -1,16 +1,18 @@
 <?php
-$password = '$!§{dq_#+1|1'; // mindestens 8 Zeichen, maximal 15 Zeichen
+$password = NULL; // mindestens 8 Zeichen, maximal 15 Zeichen
 
 
 function validate($value) : string
 {
+    $result =mb_strlen($value);
+
     if (empty($value)) {
         echo 'password should not be empty';
         return 'password should not be empty';
-    } else if (strlen($value) < 8) {
+    } elseif ($result < 8) {
         echo 'password should be at least 8 characters long';
         return 'password should be at least 8 characters long';
-    } else if (strlen($value) > 15) {
+    } elseif ($result > 15) {
         echo 'password should be at most 15 characters long';
         return 'password should be at most 15 characters long';
     } else {

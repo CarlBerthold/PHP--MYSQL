@@ -15,11 +15,11 @@ function compareNumbers($number1, $number2)
 
     if ($number1 < $number2) {
         echo $number1 . ' is smaller than ' . $number2;
-    } elseif ($number1 > $number2) {
+    } elseif ($number1 >= $number2) {
         echo $number1 . ' is bigger than ' . $number2;
     } else {
         echo $number1 . ' is equal to ' . $number2;
     }
 }
 
-compareNumbers('', 12);
+compareNumbers(12, 12);
