@@ -29,3 +29,24 @@ if ($number > 4) {
             echo 'The number is not 1, 2, 3 or 4', PHP_EOL;
     }
 } */
+
+
+ $name = 'John';
+//$name = '';
+//$name = NULL;
+
+if ($name) {
+    echo 'The name is ' . $name, PHP_EOL;
+} else {
+    echo 'The name is empty', PHP_EOL;
+}
+
+if (!empty($name)) {
+    echo 'The name is ' . $name, PHP_EOL;
+} else {
+    echo 'The name is empty', PHP_EOL;
+}
+
+// $name ? true : false;
+
+echo $name ? 'The name is ' . $name : 'The name is empty', PHP_EOL;
