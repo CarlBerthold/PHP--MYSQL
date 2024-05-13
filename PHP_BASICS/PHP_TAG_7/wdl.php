@@ -61,6 +61,30 @@ if (!empty($name)) {
     echo 'The name is empty', PHP_EOL;
 }
 
+/**
+ * Checks if the variable $name is set and displays the corresponding message.
+ *
+ * @param mixed $name The variable to check.
+ * @return void
+ */
+if (isset($name)) {
+    echo 'The name is ' . $name, PHP_EOL;
+} else {
+    echo 'The name is empty', PHP_EOL;
+}
+
+/**
+ * Checks if the name is null and displays a message accordingly.
+ *
+ * @param string|null $name The name to be checked.
+ * @return void
+ */
+if (is_null($name)) {
+    echo 'The name is empty', PHP_EOL;
+} else {
+    echo 'The name is ' . $name, PHP_EOL;
+}
+
 // $name ? true : false;
 
 /**
