@@ -26,24 +26,31 @@ function divide($value1 = 1, $value2 = 1)
 }
 
 
-// Testen
-echo "Addition:\n";
-sum(3, 7);
-sum(4);
-sum();
+$number1 = 5;
+$number2 = 2;
 
-// var_dump($result, $value1, $value2);
-echo "Subtraktion:\n";
-subtract(17, 8);
-subtract(42);
-subtract();
+$operator = '/';
 
-echo "Multiplikation:\n";
-multiply(17, 8);
-multiply(42);
-multiply();
+switch($operator)
+{
+    case '+':
+        echo 'addition' . sum($number1, $number2), PHP_EOL;
+        break;
+    case '-':
+        echo 'subtraction' . subtract($number1, $number2), PHP_EOL;
+        break;
+    case '*':
+        echo 'multiplication' . multiply($number1, $number2), PHP_EOL;
+        break;
+    case '/':
+        if ($number1 != 0 && $number2 != 0) {
+            echo 'division' . divide($number1, $number2), PHP_EOL;
+        } else {
+            echo 'Cannot divide by zero', PHP_EOL;
+        }
+        break;
+    default:
+        echo 'Please provide a valid operator (+, -, *, /)', PHP_EOL;
+}
 
-echo "Division:\n";
-divide(17, 8);
-divide(42);
-divide();
+echo ((true ? 'true' : false) ? 't' : 'f' );

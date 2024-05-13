@@ -1,5 +1,5 @@
 <?php
-$password = NULL; // mindestens 8 Zeichen, maximal 15 Zeichen
+$password = '123njq/123'; // mindestens 8 Zeichen, maximal 15 Zeichen
 
 
 function validate($value) : string
