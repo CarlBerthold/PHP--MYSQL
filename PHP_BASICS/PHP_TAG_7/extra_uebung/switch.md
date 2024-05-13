@@ -16,3 +16,5 @@ Tage verwendet wird.
 # Teilaufgabe 5 # 
 - Lagere wahlweise die Lösung mit der switch-Anweisung oder mit der match-Expression in eine Funktion aus.
 Die Funktion könnte getDaysInMonth heißen und sollte die Anzahl der Tage pro Monat zurückgeben.
+
+[LÖSUNG](switch.php)
