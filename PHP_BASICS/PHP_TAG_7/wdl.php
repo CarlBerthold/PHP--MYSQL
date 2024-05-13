@@ -94,4 +94,24 @@ if (is_null($name)) {
  * @param string $name The name to be printed.
  * @return void
  */
-echo $name ? 'The name is ' . $name : 'The name is empty', PHP_EOL;
+echo !empty($name) ? 'The name is ' . $name : 'The name is empty', PHP_EOL;
+
+/**
+ * 
+ * This code snippet echoes the name if it is not empty, otherwise it echoes 'empty'.
+ * 
+ * @param string|null $name The name to be echoed.
+ * @return void
+ */
+echo 'The name is ' . ($name ?: 'empty'), PHP_EOL;
+
+$name = '';
+
+/**
+ *
+ * This code snippet prints the value of the variable $name if it is set, otherwise it prints 'empty'.
+ *
+ * @param mixed $name The variable whose value will be printed.
+ * @return void
+ */
+echo 'The name is ' . ($name ?? 'empty'), PHP_EOL;
