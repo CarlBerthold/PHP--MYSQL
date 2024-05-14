@@ -45,10 +45,15 @@ echo $visitors[2]['name'] . ' from ' . $visitors[2]['city'] . ' has visited ' . 
 // Array Methods
 
 var_dump(in_array('Vasil', $visitors[2], true)); // returns true if the value is in the array
-array_pop($visitors); // removes the last element from the array
-array_shift($visitors); // removes the first element from the array
-array_unshift($visitors); // adds an element to the beginning of the array
-array_push($visitors); // adds an element to the end of the array
+
+array_pop($visitors); // removes the last element from the array returns a new array
+array_shift($visitors); // removes the first element from the array returns a new array
+
+array_unshift($visitors, ['name' => 'Alice', 'age' => '25', 'city' => 'London']); // adds an element to the beginning of the array returns a new array
+array_push($visitors, ['name' => 'Bob', 'age' => '30', 'city' => 'Paris']); // adds an element to the end of the array returns a new array
+
+$visitorsValues = array_values($visitors); // returns all the values of the array returns a new array
+$visitorsKeys = array_keys($visitors); // returns all the keys of the array returns a new array
 
 
 echo in_array('Vasil', $visitors[2]), PHP_EOL; // returns true if the value is in the array
@@ -108,8 +113,10 @@ $moreFruits = [
 ];
 
 
-$fruits = array_merge($fruits, $moreFruits); // merge two arrays concat them
+$fruits = array_combine(array_keys($fruits), array_values($fruits)); // combine two arrays to an associative array
+//$fruits = array_merge($fruits, $moreFruits); // merge two arrays concat them
 var_dump($fruits);
+
 
 $fruits = [...$fruits, ...$moreFruits]; // merge two arrays concat them
 echo $str = implode(", ", $fruits);
