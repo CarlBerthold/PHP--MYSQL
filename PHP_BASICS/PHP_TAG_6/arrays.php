@@ -42,6 +42,12 @@ var_dump($visitors[1]['name'] . ' from ' . $visitors[1]['city']); // string(18) 
 
 echo $visitors[2]['name'] . ' from ' . $visitors[2]['city'] . ' has visited ' . $visitors[2]['visited'][1]; // Vasil from Munich has visited Sidney
 
+$visitors[1] = $visitors[1] + ['organizer' => false]; // add a new key value pair to the array
+$visitors[2] = $visitors[2] + ['organizer' => false]; // add a new key value pair to the array
+
+var_dump($visitors);
+print_r($visitors);
+
 // Array Methods
 
 var_dump(in_array('Vasil', $visitors[2], true)); // returns true if the value is in the array
@@ -57,7 +63,9 @@ $visitorsKeys = array_keys($visitors); // returns all the keys of the array retu
 
 
 echo in_array('Vasil', $visitors[2]), PHP_EOL; // returns true if the value is in the array
-echo $visitors[0]['name'];
+echo $visitors[4]['name']?? 'No name', PHP_EOL; // returns the value if the key exists otherwise the default value
+
+
 
 // array indexed 
 $fruits = [

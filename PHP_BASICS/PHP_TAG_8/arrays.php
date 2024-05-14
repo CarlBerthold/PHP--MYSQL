@@ -8,7 +8,7 @@ $TechStack = [
             'projects' => [
                 'e-commerce',
                 'social media',
-                'blog'
+                'blog',
             ]
         ],
         'CSS' => [
@@ -17,7 +17,7 @@ $TechStack = [
             'projects' => [
                 'e-commerce',
                 'social media',
-                'blog'
+                'blog',
             ]
         ],
         'JavaScript' => [
@@ -26,7 +26,7 @@ $TechStack = [
             'projects' => [
                 'e-commerce',
                 'social media',
-                'blog'
+                'blog',
             ]
         ],
         'frameworks' => [
@@ -36,7 +36,7 @@ $TechStack = [
                 'projects' => [
                     'e-commerce',
                     'social media',
-                    'blog'
+                    'blog',
                 ]
             ],
             'Vue' => [
@@ -44,13 +44,13 @@ $TechStack = [
                 'skill_level' => 'intermediate',
                 'projects' => [
                     'e-commerce',
-                    'blog'
+                    'blog',
                 ]
             ],
             'Angular' => [
                 'using_since' => '2024',
                 'skill_level' => 'beginner',
-                'projects' => []
+                'projects' => [],
             ]
         ]
     ],
@@ -68,7 +68,7 @@ $TechStack = [
             'skill_level' => 'advanced',
             'projects' => [
                 'real-time chat',
-                'blog'
+                'blog',
             ]
         ],
         'Python' => [
@@ -76,7 +76,7 @@ $TechStack = [
             'skill_level' => 'beginner',
             'projects' => [
                 'data analysis',
-                'machine learning'
+                'machine learning',
             ]
         ],
         'Ruby' => [
@@ -92,7 +92,7 @@ $TechStack = [
             'skill_level' => 'advanced',
             'projects' => [
                 'enterprise software',
-                'mobile app'
+                'mobile app',
             ]
         ],
         'C#' => [
@@ -100,7 +100,7 @@ $TechStack = [
             'skill_level' => 'advanced',
             'projects' => [
                 'game development',
-                'enterprise software'
+                'enterprise software',
             ]
         ]
     ],
@@ -119,7 +119,7 @@ $TechStack = [
                 'skill_level' => 'intermediate',
                 'projects' => [
                     'data analysis',
-                    'blog'
+                    'blog',
                 ]
             ],
             'SQLite' => [
@@ -127,7 +127,7 @@ $TechStack = [
                 'skill_level' => 'beginner',
                 'projects' => [
                     'mobile app',
-                    'desktop app'
+                    'desktop app',
                 ]
             ],
             'Oracle' => [
@@ -135,7 +135,7 @@ $TechStack = [
                 'skill_level' => 'advanced',
                 'projects' => [
                     'enterprise software',
-                    'data warehousing'
+                    'data warehousing',
                 ]
             ],
             'MariaDB' => [
@@ -143,7 +143,7 @@ $TechStack = [
                 'skill_level' => 'advanced',
                 'projects' => [
                     'web development',
-                    'data analysis'
+                    'data analysis',
                 ]
             ]
         ],
@@ -153,7 +153,7 @@ $TechStack = [
                 'skill_level' => 'advanced',
                 'projects' => [
                     'real-time chat',
-                    'social media'
+                    'social media',
                 ]
             ],
             'CouchDB' => [
@@ -161,7 +161,7 @@ $TechStack = [
                 'skill_level' => 'intermediate',
                 'projects' => [
                     'web development',
-                    'mobile app'
+                    'mobile app',
                 ]
             ],
             'Cassandra' => [
@@ -169,7 +169,7 @@ $TechStack = [
                 'skill_level' => 'beginner',
                 'projects' => [
                     'data analysis',
-                    'big data'
+                    'big data',
                 ]
             ],
             'Firebase' => [
@@ -177,7 +177,7 @@ $TechStack = [
                 'skill_level' => 'advanced',
                 'projects' => [
                     'mobile app',
-                    'real-time chat'
+                    'real-time chat',
                 ]
             ]
         ]
@@ -191,27 +191,18 @@ $TechStack = [
 
 
 /**
- * Recursively loops through a multi-dimensional array and prints the keys and types of the values.
- *
- * @param array $array The array to loop through.
- * @param int $indent The number of spaces to indent each level of the array.
- * @return string The formatted string.
+ * Get all keys from the TechStack array || Get all firstlevel fields from the TechStack array
  */
-function loopArray(array $array, int $indent = 0): string {
-    foreach ($array as $key => $value) {
-        if (is_array($value)) {
-            echo str_repeat(" ", $indent) . $key . ":\n";
-            return loopArray($value, $indent + 2);
-        } else {
-            return str_repeat(" ", $indent) . $key . ": " . gettype($value) . "\n";
-        }
-    }
-    
-    return ""; // Add this line to return an empty string if the array is empty.
-}
+$techFields = array_keys($TechStack);
+// $frontend = array_keys($TechStack['Frontend']);
+// $backend = array_keys($TechStack['Backend']);
+// $databases = array_keys($TechStack['Database']);
+
+/* var_dump($frontend);
+var_dump($backend);
+var_dump($databases); */
 
 
-loopArray($TechStack);
 ?>
 
 <!DOCTYPE html>
@@ -222,40 +213,54 @@ loopArray($TechStack);
     <title>Document</title>
 </head>
 <body>
-    <ul>
-        <?php foreach ($TechStack as $category => $technologies): ?>
-            <li>
-                <strong><?= $category ?></strong>
-                <ul>
-                    <?php foreach ($technologies as $tech => $details): ?>
-                        <li>
-                            <strong><?= $tech ?></strong>
-                            <ul>
-                                <?php foreach ($details as $detail => $value): ?>
-                                    <?php if (is_array($value)): ?>
-                                        <li>
-                                            <?= $detail ?>
-                                            <ul>
-                                                <?php foreach ($value as $project => $details2): ?>
-                                                    <?php if(is_array($details2)): ?>
-                                                        <li><?php foreach($details2 as $result): ?>
-                                                            <?= $result ?>
-                                                            <?php endforeach; ?>
+<ul>
+    <li>
+        <?php foreach($techFields as $area) : ?>
+            <ul>
+                <li>
+                    <?= $area ?>
+                    <ul>
+                        <?php foreach($TechStack[$area] as $field => $value) : ?>
+                            <li>
+                                <?= $field ?>
+                                <ul>
+                                    <?php foreach($value as $key => $val) : ?>
+                                        <?php if (is_array($val)) : ?>
+                                            <li>
+                                                <?= $key ?>
+                                                <ul>
+                                                    <?php foreach($val as $subKey => $subVal) : ?>
+                                                        <li>
+                                                            <?php if (is_array($subVal)) : ?>
+                                                                <?= $subKey ?>
+                                                                <ul>
+                                                                    <?php foreach($subVal as $subSubKey => $subSubVal) : ?>
+                                                                        <li>
+                                                                            <?= $subSubKey . ': ' . $subSubVal ?>
+                                                                        </li>
+                                                                    <?php endforeach; ?>
+                                                                </ul>
+                                                            <?php else : ?>
+                                                            <?= $subKey . ': ' . $subVal ?>
+                                                            <?php endif; ?>
                                                         </li>
-                                                    <?php endif; ?>
-                                                <?php endforeach; ?>
-                                            </ul>
-                                        </li>
-                                    <?php else: ?>
-                                        <li><?= $detail ?>: <?= $value ?></li>
-                                    <?php endif; ?>
-                                <?php endforeach; ?>
-                            </ul>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            </li>
+                                                    <?php endforeach; ?>
+                                                </ul>
+                                            </li>
+                                        <?php else : ?>
+                                            <li>
+                                                <?= $key . ': ' . $val ?>
+                                            </li>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </li>
+            </ul>
         <?php endforeach; ?>
-    </ul>
+    </li>
+</ul>
 </body>
 </html>
