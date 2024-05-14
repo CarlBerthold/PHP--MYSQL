@@ -62,13 +62,15 @@ echo is_odd2(3);
 
 
 
+
+function is_odd3(int|string $number) : string {
+   return (is_even3($number));
+}
+
 function is_even3(int $number) : int|string {
     return $number % 2 === 0 ? 'The number is even' : 'The number is odd';
 }
 
-function is_odd3(int $number){
-    echo gettype(is_even3($number));
-}
-
-echo is_odd3(2);
+//echo is_odd3(3);
+echo is_even3(3);
 
