@@ -124,3 +124,50 @@ $numbers[4] = 5;
 array_splice($numbers, 5, 0, [6]);
 
 var_dump($numbers);
+
+
+// index operator creates a new array
+$firstName[] = 'Alice';
+$firstName[] = 'Gustav';
+$firstName[] = 'Claire';
+
+// var_dump($firstName);
+// print_r($firstName);
+// echo $firstName[0] . PHP_EOL;
+
+
+// set the $firstName to the index of 99 => autoincrement will be start after the last index
+// if the index has gapes its not any longer a indexed array // list
+$firstName2[99] = 'John';
+var_dump($firstName2);
+
+var_dump($firstName); // false
+
+$firstName = array_values($firstName);
+
+var_dump($firstName); // true
+
+
+$lastName = 'Smith';
+$lastName1 = 'Brown';
+$lastName2 = 'Miller';
+
+
+
+$days[] = 'Monday';
+$days[] = 'Tuesday';
+$days[] = 'Wednesday';
+$days[] = 'Thursday';
+$days[] = 'Friday';
+$days[] = 'Saturday';
+$days[] = 'Sunday';
+
+echo $days[2];
+
+$a = ['y', 'z'];
+
+function solution($a, $x) {
+    return in_array($x, $a, true);
+}
+
+echo solution($a, 'x');
