@@ -222,7 +222,7 @@ loopArray($TechStack);
     <title>Document</title>
 </head>
 <body>
-<ul>
+    <ul>
         <?php foreach ($TechStack as $category => $technologies): ?>
             <li>
                 <strong><?= $category ?></strong>
