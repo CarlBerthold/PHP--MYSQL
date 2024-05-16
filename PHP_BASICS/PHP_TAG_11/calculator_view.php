@@ -1,6 +1,6 @@
 <?php
 
-require '../PHP_TAG_5/calculator/calculation01.php';
+require './operations.php';
 $result = null;
 
 
@@ -27,7 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 ?>
 <?php include './head.php'; ?>
-
     <body>
         <main class="mx-auto">
             <div class="container mx-auto">

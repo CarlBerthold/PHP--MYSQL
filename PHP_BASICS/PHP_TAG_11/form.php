@@ -1,4 +1,6 @@
-
+<?php
+$operators = ['+', '-', '*', '/'];
+?>
 <form action="calculator_view.php" method="post"
     class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
     <div class="mb-4">
@@ -33,10 +35,9 @@
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
             id="operator"
             name="operator">
-            <option value="+">+</option>
-            <option value="-">-</option>
-            <option value="*">*</option>
-            <option value="/">/</option>
+            <?php foreach ($operators as $operator) : ?>
+                <option value="<?php echo $operator; ?>"><?php echo $operator; ?></option>
+            <?php endforeach; ?>
         </select>
     </div>
     <div class="flex items-center justify-between">
