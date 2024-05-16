@@ -73,22 +73,29 @@ exit; */
         <?php } ?>
 
         <!-- foreach -->
-        <?php foreach ($visitors as $visitor) { ?>
+        <?php foreach ($visitors as $visitor => $value) { ?>
             <tr>
-            <?php foreach ($visitor as $value) { ?>
-                <td><?php echo 'foreach' . $value ?></td>
-            <?php } ?>
+                <td><?php echo 'foreach' . $value['name'] ?></td>
+                <td><?php echo 'foreach' . $value['age'] ?></td>
+                <td><?php echo 'foreach' . $value['city'] ?></td>
+                <td><?php echo 'foreach' . $value['organizer'] ?></td>
             </tr>
         <?php } ?>
 
         <!-- nested foreach -->
-        <?php foreach ($visitors as $visitor => $data) { ?>
+        <?php foreach ($visitors as $visitor => $data) : ?>
             <tr>
-                <?php foreach ($data as $key => $value) { ?>
-                    <td><?php echo 'nested foreach' .  $value ?></td>
-                <?php } ?>
+                <?php foreach ($data as $key => $value) : ?>
+                    <td>
+                        <?php echo 'nested foreach' .  $value ?>
+                    </td>
+                    <?php 
+                        if(!isset($visitors['organizer'])): 
+                            echo 'n/a';
+                        endif?>
+                <?php endforeach ?>    
             </tr>
-        <?php } ?>
+        <?php endforeach ?>
     </table>
 </body>
 </html>

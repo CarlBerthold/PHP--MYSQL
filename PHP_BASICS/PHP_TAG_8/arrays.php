@@ -241,7 +241,7 @@ var_dump($databases); */
                                                                     <?php endforeach; ?>
                                                                 </ul>
                                                             <?php else : ?>
-                                                            <?= $subKey . ': ' . $subVal ?>
+                                                                <?= $subKey . ': ' . $subVal ?>
                                                             <?php endif; ?>
                                                         </li>
                                                     <?php endforeach; ?>
