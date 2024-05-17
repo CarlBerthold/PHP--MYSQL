@@ -39,17 +39,21 @@ function handlePost($expression){
     $numberTwo = floatval($matches[3] ?? 0);
     $operator = $matches[2] ?? '+';
 
-    if ($operator === '+') {
-            $result = sum($numberOne, $numberTwo); 
-        } elseif ($operator === '-') {
-            $result = subtract($numberOne, $numberTwo);
-        } elseif ($operator === '*') {
-            $result = multiply($numberOne, $numberTwo);
-        } elseif ($operator === '/') {
-            $result = divide($numberOne, $numberTwo);
-        }
-        return $result;
+
+    switch ($operator) {
+
+        case '+':
+            return $result = sum($numberOne, $numberTwo);
+        case '-':
+            return $result = subtract($numberOne, $numberTwo);
+        case '*':
+            return $result = multiply($numberOne, $numberTwo);
+        case '/':
+            return $result = divide($numberOne, $numberTwo);
+        default:
+            return 'Invalid operator';
     }
+}
 ?>
 <?php include './head.php'; ?>
     <body>
