@@ -54,34 +54,35 @@ $operatorIndex = 0;
             Display
         </label>
         <input 
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+            class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
             id="display"
             name="display" 
             type="text" 
             readonly
         />
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded col-span-2" 
+                    type="submit"
+                    onclick="resetDisplay()">
+                Reset
+        </button>
     </div>
     <div class="flex gap-4">
         <div class="grid grid-cols-3 gap-4">
             <?php foreach ($numbers as $number): ?>
-            <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
+            <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" 
                     onclick="appendToDisplay('<?php echo $number; ?>')">
                     <?php echo $number; ?>
             </button>
             <?php endforeach; ?>
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline col-span-2" 
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded col-span-2" 
                     type="submit">
                 Calculate 
             </button>
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline col-span-2" 
-                    type="submit"
-                    onclick="resetDisplay()">
-                Reset
-            </button>
+           
         </div>
-        <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-4 ">
             <?php foreach ($operators as $operator): ?>
-                <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
+                <button type="button" class="operator-button bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded " 
                         onclick="appendToDisplay('<?php echo $operator; ?>')">
                         <?php echo $operator; ?>
                 </button>

@@ -1,0 +1,5 @@
+@tailwind utilities;
+
+.operator-button {
+    width: 75px;
+}
