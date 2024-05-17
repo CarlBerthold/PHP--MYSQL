@@ -3,3 +3,7 @@
 .operator-button {
     width: 75px;
 }
+
+.input_cs > input {
+    max-width: 140px;
+}

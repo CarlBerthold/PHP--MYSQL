@@ -49,17 +49,16 @@ $operatorIndex = 0;
     </div>
 </form> -->
 <form action="calculator_view.php" method="post" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-    <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="display">
-            Display
-        </label>
-        <input 
-            class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-            id="display"
-            name="display" 
-            type="text" 
-            readonly
-        />
+    <div class="mb-4 flex gap-4">
+        <div class="input_cs">
+            <input 
+                class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
+                id="display"
+                name="display" 
+                type="text" 
+                readonly
+            />
+        </div>
         <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded col-span-2" 
                     type="submit"
                     onclick="resetDisplay()">

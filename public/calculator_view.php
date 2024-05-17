@@ -4,41 +4,30 @@ require './operations.php';
 $result = null;
 
 
-/* if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // check the input if set or null
-    // turn string into float
-    // save it to variableS
-    $numberOne = floatval($_POST['numberOne'] ?? 0);
-    $numberTwo = floatval($_POST['numberTwo'] ?? 0);
-    $operator = $_POST['operator'] ?? '+';
-
-    // checks for following operators
-    if ($operator === '+') {
-        $result = sum($numberOne, $numberTwo); 
-    } elseif ($operator === '-') {
-        $result = subtract($numberOne, $numberTwo);
-    } elseif ($operator === '*') {
-        $result = multiply($numberOne, $numberTwo);
-    } elseif ($operator === '/') {
-        $result = divide($numberOne, $numberTwo);
-    }
-}
- */
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $expression = $_POST['display'];
     $result = handlePost($expression);
 }
 
-function handlePost($expression){
-     // check for patterns; digit, operator, digit
-    // returns array of matches
-    validate();
-    preg_match('/(\d+)([\+\-\*\/])(\d+)/', $expression, $matches);
+function validate(string $expression) : mixed {
+    if (preg_match('/(\d+)([\+\-\*\/])(\d+)/', $expression, $matches)) {
+        return $matches;
+    } else {
+        return 'Please provide a valid expression.';
+    }
+}
 
-    $numberOne = floatval($matches[1] ?? 0);
-    $numberTwo = floatval($matches[3] ?? 0);
-    $operator = $matches[2] ?? '+';
+
+function handlePost(string $expression) : mixed {
+    $validationResult = validate($expression);
+
+    if(is_string($validationResult)) {
+        return $validationResult;
+    }
+
+    $numberOne = floatval($validationResult[1] ?? 0);
+    $numberTwo = floatval($validationResult[3] ?? 0);
+    $operator = $validationResult[2] ?? '+';
 
 
     switch ($operator) {
@@ -52,9 +41,10 @@ function handlePost($expression){
         case '/':
             return $result = divide($numberOne, $numberTwo);
         default:
-            return 'Invalid operator';
+            return 0;
     }
 }
+
 ?>
 <?php include './head.php'; ?>
     <body>
@@ -68,7 +58,7 @@ function handlePost($expression){
                         </p>
 
                         <p class="text-center text-gray-700 text-xl mt-4">
-                            The result is a positive number: <?php echo ($result < 0) ? "No" : "Yes"; ?>
+                            The result is a positive number: <?php echo ($result <= 0) ? "No" : "Yes"; ?>
                         </p>
                     </div>
                 </div>
