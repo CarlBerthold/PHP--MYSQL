@@ -33,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 function handlePost($expression){
      // check for patterns; digit, operator, digit
     // returns array of matches
+    validate();
     preg_match('/(\d+)([\+\-\*\/])(\d+)/', $expression, $matches);
 
     $numberOne = floatval($matches[1] ?? 0);
