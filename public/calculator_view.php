@@ -10,9 +10,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 function validate(string $expression) : mixed {
-    if (preg_match('/(\d+)([\+\-\*\/])(\d+)/', $expression, $matches)) {
+
+    // check if the expression is empty
+    if(empty($expression)) {
+        return 'Please provide an expression.';
+    }
+    // check the $expression for a + - * / operator
+    if (!preg_match('/[\+\-\*\/]/', $expression)) {
+        return $expression;
+    } elseif (preg_match('/(\d+)([\+\-\*\/])(\d+)/', $expression, $matches)) {
+        // full expression is valid
         return $matches;
     } else {
+        // var_dump($matches= [$expression, $matches]);
+        // general expression error
         return 'Please provide a valid expression.';
     }
 }
@@ -23,12 +34,11 @@ function handlePost(string $expression) : mixed {
 
     if(is_string($validationResult)) {
         return $validationResult;
+    } else {
+        $numberOne = floatval($validationResult[1] ?? 0);
+        $numberTwo = floatval($validationResult[3] ?? 0);
+        $operator = $validationResult[2] ?? '+';
     }
-
-    $numberOne = floatval($validationResult[1] ?? 0);
-    $numberTwo = floatval($validationResult[3] ?? 0);
-    $operator = $validationResult[2] ?? '+';
-
 
     switch ($operator) {
 
