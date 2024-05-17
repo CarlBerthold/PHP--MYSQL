@@ -58,7 +58,7 @@ function handlePost(string $expression) : mixed {
                         </p>
 
                         <p class="text-center text-gray-700 text-xl mt-4">
-                            The result is a positive number: <?php echo ($result <= 0) ? "No" : "Yes"; ?>
+                            The result is a positive number: <?php echo ($result < 0) ? "No" : "Yes"; ?>
                         </p>
                     </div>
                 </div>
