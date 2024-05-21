@@ -22,7 +22,7 @@ $userData = [
 
 
 // using foreach loop
-if($_POST) {
+/* if($_POST) {
     foreach($userData as $user) {
         if($user['username'] === $_POST['username'] && $user['password'] === $_POST['password']) {
             header('Location: success.php');
@@ -30,10 +30,10 @@ if($_POST) {
             exit;
         }
     }
-}
+} */
 
 // using array methods
-$loginNames = array_column($userData, 'loginname');
+/* $loginNames = array_column($userData, 'loginname');
 
 if ($_POST) {
     if (($index = array_search($_POST['loginname'], $loginNames)) !== false) {
@@ -45,6 +45,18 @@ if ($_POST) {
     }
 
     $message = 'Die Kombination Benutzername und Kennwort stimmen nicht überein!';
+} */
+
+
+// using name as key and password as value
+
+$loginNames = array_column($userData, 'password', 'username');
+
+if($_POST) {
+    if(array_key_exists($_POST['username'], $loginNames) &&  $_POST['password'] === $loginNames[$_POST['username']]) {
+         echo "Hallo {$_POST['username']} ! Du bist eingelogged";
+         exit;
+    }
 }
 
 
