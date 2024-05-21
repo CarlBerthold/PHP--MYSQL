@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulare</title>
+</head>
+<body>
+    <h1>Formulare</h1>
+    <form action="#" method="get">
+        <fieldset>
+            <legend>Personendaten</legend>
+            <label for="firstname">Vorname</label>
+            <input
+                type="text"
+                name="firstname"
+                id="firstname" 
+                placeholder="Vorname" 
+                title="firstname"
+                value="placeholder"/>
+            <label for="lastname">Nachname</label>
+            <input type="text" name="lastname" id="lastname" placeholder="Nachname" />
+        </fieldset>
+        <fieldset>
+            <label for="number">Zahl</label>
+            <input type="number" name="number" id="number" placeholder="Zahl" />
+        </fieldset>
+
+        <input type="number" name="number" id="number" placeholder="Zahl" step="any" />
+
+        <fieldset>
+            <label for="phone">Telefonnummer</label>
+            <input type="tel" name="phone" id="phone" placeholder="Telefonnummer" pattern="^(\+49|0)[1-9]\d{1,14}$" />
+        </fieldset>
+
+        <fieldset>
+            <label for="woman">Frau: </label>
+            <input type="radio" name="gender" id="woman" value="woman" required>
+            <label for="man">Mann: </label>
+            <input type="radio" name="gender" id="man" value="man">
+            <label for="divers">Divers: </label>
+            <input type="radio" name="gender" id="divers" value="diverse">
+        </fieldset>
+
+        <fieldset>
+            <label for="newsletter">Newsletter: </label><input type="checkbox" name="newsletter" id="newsletter">
+            <label for="gewinn">Gewinnspiel: </label><input type="checkbox" name="gewinn" id="gewinn" value="gewinn">
+            <label for="abo">Abo: </label><input type="checkbox" name="abo" id="abo">
+        </fieldset>
+
+
+        <button type="submit" value="Absenden">Absenden</button>
+    </form>
+</body>
+</html>
+
+<!-- http://localhost/MYSQL/PHP_BASICS/PHP_TAG_12/forms/formulare.html?firstname=gustav&lastname=meier# -->
+
+<!-- http://localhost/MYSQL/PHP_BASICS/PHP_TAG_12/forms/formulare.html?firstname=placeholder&lastname=&number=&number=&phone=&gender=on# -->
+<!-- http://localhost/MYSQL/PHP_BASICS/PHP_TAG_12/forms/formulare.html?firstname=placeholder&lastname=&number=&number=&phone=&gender=diverse# -->
