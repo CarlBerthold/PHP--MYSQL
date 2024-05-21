@@ -2,12 +2,20 @@
 require './users.php';
 
 // set a variable for the id we are looking for 
-$id = 2;
+$id = 3;
 
-// check if the id is preset and set the $exampleUser to the user with the id
-if (isset($users[$id])) {
-    $exampleUser = $users[$id];
+// check if the id is present and set the $exampleUser to the user with the id
+$exampleUser = array_column($users, null, 'id');
+
+if (array_key_exists($id, $exampleUser)) {
+    $exampleUser = $exampleUser[$id];
+} else {
+    $exampleUser = [];
 }
+
+$isRegistered = false;
+
+
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +29,7 @@ if (isset($users[$id])) {
     <h1>Registration</h1>
 
     <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
+    <?php if ($isRegistered) : ?>
         <fieldset>
             <label for="id">ID:</label>
             <input 
@@ -28,9 +37,10 @@ if (isset($users[$id])) {
                 name="id" 
                 id="id"
                 readonly 
-                value="1"
+                value="<?= $exampleUser['id'] ?? '' ?>"
                 placeholder="<?= $_POST['value'] ?? '' ?>"/>
         </fieldset>
+    <?php endif; ?>
 
         <fieldset>
             <label for="firstName">Firstname: </label>
@@ -50,13 +60,16 @@ if (isset($users[$id])) {
                 value="<?= $exampleUser['last_name'] ?? '' ?>"/>
         </fieldset>
 
-        <fieldset>
+        
+
+        <?php if($isRegistered) : ?>
             <label for="role">Role</label>
             <select name="role" id="role">
                 <option value="admin">Admin</option>
                 <option value="user">User</option>
                 <option value="inactive">Inactive</option>
             </select>
+        <?php endif; ?>
 
             <label for="email">Email: </label>
             <input 
@@ -69,6 +82,7 @@ if (isset($users[$id])) {
                 value="<?= $exampleUser['email'] ?? '' ?>"/>
         </fieldset>
 
+        <?php if($isRegistered) : ?>
         <fieldset>
             <label for="registered_since">Registered since</label>
             <input 
@@ -86,6 +100,7 @@ if (isset($users[$id])) {
                 value="<?= $exampleUser['last_modified'] ?? '' ?>"
                 readonly/>
         </fieldset>
+        <?php endif; ?>
 
         <fieldset>
             <label for="password">Password: </label>
