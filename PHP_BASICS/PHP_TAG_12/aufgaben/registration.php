@@ -1,6 +1,8 @@
 <?php
 require './users.php';
 
+$users = fetchData();
+
 // set a variable for the id we are looking for 
 $id = 3;
 
@@ -14,7 +16,7 @@ if (array_key_exists($id, $exampleUser)) {
 }
 
 // for displaying the id, role, registered_since and last_modified fields
-$isRegistered = True;
+$isRegistered = true;
 
 
 ?>
@@ -25,9 +27,14 @@ $isRegistered = True;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
+    <link href="registration.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Registration</h1>
+    <?php if($isRegistered) : ?>
+        <h1>Edit</h1>
+    <?php else : ?>
+        <h1>Register</h1>
+    <?php endif; ?>
 
     <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
     <?php if ($isRegistered) : ?>
@@ -113,8 +120,7 @@ $isRegistered = True;
 
             <label for="passwordConfirmation">Confirm Password: </label>
             <input 
-                type="password" 
-                name="passwordConfirmation" 
+                type="password"
                 id="passwordConfirmation"
                 value="<?= $exampleUser['password'] ?? '' ?>"/>
         </fieldset>

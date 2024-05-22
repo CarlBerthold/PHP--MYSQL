@@ -1,6 +1,8 @@
 <?php
 require './users.php';
 
+$users = fetchData();
+
 ?>
 
 
