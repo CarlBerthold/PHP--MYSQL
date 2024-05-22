@@ -13,7 +13,8 @@ if (array_key_exists($id, $exampleUser)) {
     $exampleUser = [];
 }
 
-$isRegistered = false;
+// for displaying the id, role, registered_since and last_modified fields
+$isRegistered = True;
 
 
 ?>
