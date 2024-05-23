@@ -2,44 +2,29 @@
 
 declare(strict_types=1);
 
-function add(int|float $value1, int|float $value2) : int|float
-{
-    return $value1 + $value2;
-}
 
-function substract(int|float $value1, int|float $value2) : int|float
-{
-    return $value1 - $value2;
-}
-
-function multiply(int|float $value1, int|float $value2) : int|float
-{
-    return $value1 * $value2;
-}
-
-function divide(int|float $value1, int|float $value2) : int|float|string
-{
-    if ($value2 !== 0) {
-        $result = $value1 / $value2;
-    } else {
-        $result = 'Division by zero';
-    }
-
-    return $result;
-}
 
 // $operation is a string that contains the name of the function to be called
 // we could also use a callable type hint here
 // but then we need a exeption handling for the case that the function does not exist
 // now we never get to the else case 
+/**
+ * Calculates the result of a mathematical operation between two numbers.
+ *
+ * @param int|float $numberOne The first number.
+ * @param int|float $numberTwo The second number.
+ * @param string $operation The mathematical operation to perform.
+ * @return int|float|string The result of the operation, or an error message if the operation is not valid.
+ */
 function calculate(int|float $numberOne, int|float $numberTwo, string $operation): int|float|string
 {
-
     if(function_exists($operation)) {
         return $operation($numberOne, $numberTwo);
     } else {
         return "No valid operator given";
     }
+}
+
 
     /*  switch ($operator) {
         case '+':
@@ -57,8 +42,13 @@ function calculate(int|float $numberOne, int|float $numberTwo, string $operation
         default:
             return "No valid operator given";
     } */
-}
 
+/**
+ * Validates the input data for a mathematical operation.
+ *
+ * @param array $formData The form data containing the numbers and operation.
+ * @return bool Returns true if the input is valid, false otherwise.
+ */
 function validateInput(array $formData = []): bool
 {
     if (

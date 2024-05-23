@@ -1,7 +1,10 @@
 <?php
 require_once __DIR__ . '/inc/functions.inc.php';
+require_once __DIR__ . '/inc/operations.inc.php';
 
 $result = 'Please enter valid numbers';
+
+$operators = getOperator();
 
 if($_POST && validateInput($_POST)) {
     $result = calculate(
@@ -69,10 +72,17 @@ if($_POST && validateInput($_POST)) {
                                 id="operator"
                                 name="operation"
                             >
-                                <option value="add">+</option>
+                            <!-- make the operations dynamic -->
+                           <?php foreach($operators as $operation => $operator) : ?>
+                                <option value="<?= $operation ?>"><?= $operator ?></option>
+                            <?php endforeach; ?>
+
+                                <!-- <option value="add">+</option>
                                 <option value="substract">-</option>
                                 <option value="multiply">*</option>
                                 <option value="divide">/</option>
+                                <option value="modulo">%</option> -->
+
                             </select>
                         </div>
                         <div class="flex items-center justify-between">
