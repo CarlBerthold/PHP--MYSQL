@@ -7,7 +7,7 @@ if($_POST && validateInput($_POST)) {
     $result = calculate(
         (float) $_POST['numberOne'] == (int) $_POST['numberOne'] ? (int)$_POST['numberOne'] : (float)$_POST['numberOne'],
         (float) $_POST['numberTwo'] == (int) $_POST['numberTwo'] ? (int)$_POST['numberTwo'] : (float)$_POST['numberTwo'],
-        $_POST['operator']
+        $_POST['operation']
     );
 }
 
@@ -67,12 +67,12 @@ if($_POST && validateInput($_POST)) {
                             <select
                                 class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                 id="operator"
-                                name="operator"
+                                name="operation"
                             >
-                                <option value="+">+</option>
-                                <option value="-">-</option>
-                                <option value="*">*</option>
-                                <option value="/">/</option>
+                                <option value="add">+</option>
+                                <option value="substract">-</option>
+                                <option value="multiply">*</option>
+                                <option value="divide">/</option>
                             </select>
                         </div>
                         <div class="flex items-center justify-between">

@@ -2,65 +2,72 @@
 
 declare(strict_types=1);
 
-function sum($value1 = 0, $value2 = 0)
+function add(int|float $value1, int|float $value2) : int|float
 {
     return $value1 + $value2;
 }
 
-function subtract($value1 = 0, $value2 = 0)
+function substract(int|float $value1, int|float $value2) : int|float
 {
     return $value1 - $value2;
 }
 
-function multiply($value1 = 1, $value2 = 1)
+function multiply(int|float $value1, int|float $value2) : int|float
 {
     return $value1 * $value2;
 }
 
-function divide($value1 = 1, $value2 = 1)
+function divide(int|float $value1, int|float $value2) : int|float|string
 {
-    if($value1 == 0 || $value2 == 0)
-    {
-        return 'Cannot divide by zero';
+    if ($value2 !== 0) {
+        $result = $value1 / $value2;
     } else {
-        return $value1 / $value2;
+        $result = 'Division by zero';
     }
+
+    return $result;
 }
 
-
-function calculate(int|float $numberOne, int|float $numberTwo, string $operator): int|float|string
+// $operation is a string that contains the name of the function to be called
+// we could also use a callable type hint here
+// but then we need a exeption handling for the case that the function does not exist
+// now we never get to the else case 
+function calculate(int|float $numberOne, int|float $numberTwo, string $operation): int|float|string
 {
-    switch ($operator) {
+
+    if(function_exists($operation)) {
+        return $operation($numberOne, $numberTwo);
+    } else {
+        return "No valid operator given";
+    }
+
+    /*  switch ($operator) {
         case '+':
-            return $result = sum($numberOne, $numberTwo);
+            return add($numberOne, $numberTwo);
 
         case '-':
-            return $result = subtract($numberOne, $numberTwo);
+            return substract($numberOne, $numberTwo);
 
         case '*':
-            return $result = multiply($numberOne, $numberTwo);
+            return multiply($numberOne, $numberTwo);
 
         case '/':
-            if ($numberTwo == 0) {
-                return 'Cannot divide by zero';
-            } else {
-                return $result = divide($numberOne, $numberTwo);
-            }
-            break;
+            return divide($numberOne, $numberTwo);
 
         default:
             return "No valid operator given";
-    }
+    } */
 }
 
 function validateInput(array $formData = []): bool
 {
     if (
-        !empty($formData['operator']) &&
         isset($formData['numberOne']) &&
         isset($formData['numberTwo']) &&
-        is_numeric($formData['numberOne']) && 
-        is_numeric($formData['numberTwo'])) {
+        is_numeric($formData['numberOne']) &&
+        is_numeric($formData['numberTwo']) &&
+        !empty($formData['operation'])
+        ) {
         return true;
     } else {
         return false;
