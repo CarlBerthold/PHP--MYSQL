@@ -20,7 +20,8 @@ n! = 1 * 2 * 3 * ... * n */
  * @param int $n The number for which to calculate the factorial.
  * @return int The factorial of the given number.
  */
-function faculty($n) {
+function faculty($n) 
+{
     $result = 1;
     for($i = 1; $i <= $n; $i++) {
         $result *= $i;
@@ -38,7 +39,8 @@ echo faculty(6);
  * @param int $n The number for which the factorial needs to be calculated.
  * @return int The factorial of the given number.
  */
-function recursiveFaculty (int $n = 1) : int {
+function recursiveFaculty (int $n = 1) : int 
+{
     if($n > 1) {
         $result = recursiveFaculty($n - 1) * $n;
     } else {
@@ -56,7 +58,8 @@ echo recursiveFaculty(3);
  * @param int $n The number for which the factorial needs to be calculated.
  * @return int|float The factorial of the given number.
  */
-function recursiveFaculty2 (int $n = 1) : int|float {
+function recursiveFaculty2 (int $n = 1) : int|float 
+{
     return ($n > 1) ? recursiveFaculty2($n - 1) * $n : $n;
 }
 
@@ -72,7 +75,8 @@ echo recursiveFaculty2(6);
  * @param int $n The number to calculate the factorial for.
  * @return int The factorial of the given number.
  */
-$recursiveFaculty2 = function (int $n) use (&$recursiveFaculty2) {
+$recursiveFaculty2 = function (int $n) use (&$recursiveFaculty2) 
+{
     return ($n > 1) ? $recursiveFaculty2($n - 1) * $n : $n;
 };
 echo $recursiveFaculty2(6);
