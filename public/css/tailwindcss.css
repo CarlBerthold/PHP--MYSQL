@@ -1,7 +1,3 @@
-.col-span-2 {
-    grid-column: span 2 / span 2;
-}
-
 .mx-auto {
     margin-left: auto;
     margin-right: auto;
@@ -31,10 +27,6 @@
     display: flex;
 }
 
-.grid {
-    display: grid;
-}
-
 .w-full {
     width: 100%;
 }
@@ -47,14 +39,6 @@
     appearance: none;
 }
 
-.grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.flex-col {
-    flex-direction: column;
-}
-
 .items-center {
     align-items: center;
 }
@@ -65,10 +49,6 @@
 
 .justify-between {
     justify-content: space-between;
-}
-
-.gap-4 {
-    gap: 1rem;
 }
 
 .rounded {
@@ -172,11 +152,6 @@
 
 .input_cs > input {
     max-width: 140px;
-}
-
-.hover\:bg-blue-700:hover {
-    --tw-bg-opacity: 1;
-    background-color: rgb(29 78 216 / var(--tw-bg-opacity));
 }
 
 .focus\:outline-none:focus {
