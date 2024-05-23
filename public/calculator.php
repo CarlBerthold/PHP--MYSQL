@@ -1,11 +1,15 @@
 <?php
-declare(strict_types=1);
-
 require_once __DIR__ . '/inc/functions.inc.php';
 
+$result = 'Please enter valid numbers';
 
-// $result = 0;
-$result = validateInput($_POST);
+if($_POST && validateInput($_POST)) {
+    $result = calculate(
+        (float) $_POST['numberOne'] == (int) $_POST['numberOne'] ? (int)$_POST['numberOne'] : (float)$_POST['numberOne'],
+        (float) $_POST['numberTwo'] == (int) $_POST['numberTwo'] ? (int)$_POST['numberTwo'] : (float)$_POST['numberTwo'],
+        $_POST['operator']
+    );
+}
 
 
 ?>

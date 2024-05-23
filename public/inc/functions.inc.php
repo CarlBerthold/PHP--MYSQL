@@ -2,28 +2,49 @@
 
 declare(strict_types=1);
 
-$result = 0;
+function sum($value1 = 0, $value2 = 0)
+{
+    return $value1 + $value2;
+}
 
-function calculate(float $numberOne, float $numberTwo, string $operator): float|string
+function subtract($value1 = 0, $value2 = 0)
+{
+    return $value1 - $value2;
+}
+
+function multiply($value1 = 1, $value2 = 1)
+{
+    return $value1 * $value2;
+}
+
+function divide($value1 = 1, $value2 = 1)
+{
+    if($value1 == 0 || $value2 == 0)
+    {
+        return 'Cannot divide by zero';
+    } else {
+        return $value1 / $value2;
+    }
+}
+
+
+function calculate(int|float $numberOne, int|float $numberTwo, string $operator): int|float|string
 {
     switch ($operator) {
         case '+':
-            return $numberOne + $numberTwo;
-            break;
+            return $result = sum($numberOne, $numberTwo);
 
         case '-':
-            return $numberOne - $numberTwo;
-            break;
+            return $result = subtract($numberOne, $numberTwo);
 
         case '*':
-            return $numberOne * $numberTwo;
-            break;
+            return $result = multiply($numberOne, $numberTwo);
 
         case '/':
             if ($numberTwo == 0) {
                 return 'Cannot divide by zero';
             } else {
-                return $numberOne / $numberTwo;
+                return $result = divide($numberOne, $numberTwo);
             }
             break;
 
@@ -32,13 +53,16 @@ function calculate(float $numberOne, float $numberTwo, string $operator): float|
     }
 }
 
-function validateInput(array $formData = []): float|int|string
+function validateInput(array $formData = []): bool
 {
-    if (!empty($formData) && is_numeric($formData['numberOne']) && is_numeric($formData['numberTwo']) && !empty($formData['operator'])) {
-        return calculate((float)$formData['numberOne'], (float)$formData['numberTwo'], $formData['operator']);
+    if (
+        !empty($formData['operator']) &&
+        isset($formData['numberOne']) &&
+        isset($formData['numberTwo']) &&
+        is_numeric($formData['numberOne']) && 
+        is_numeric($formData['numberTwo'])) {
+        return true;
     } else {
-        return 'Please enter valid numbers';
+        return false;
     }
 }
-
-$result = validateInput($_POST);
