@@ -1,10 +1,13 @@
 <?php
 
-
-$text ='Not by might that childe den caught climes a mirth. Time his passed than through would and one for he.';
+$text = 'Sue sé alle di nel coloro alcun da le noi, occulta impetrata donne dallo primo, piaceri che cospetto prieghi spezial.';
 
 file_put_contents('text.txt', $text);
 
-$text1 ='Youhere its perfumed on that at home from. Bird books the our i nothing name i shadow. Some let stillness.';
+$text1 = 'Wann ist endlich Pause????';
 
-file_put_contents('text.txt', $text1);
+// file_put_contents('text.txt', $text1);
+file_put_contents('text.txt', "\n" . $text1, FILE_APPEND);
+
+
+echo $text, PHP_EOL;

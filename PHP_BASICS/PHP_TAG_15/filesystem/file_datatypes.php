@@ -16,6 +16,4 @@ $content = [
 ];
 
 
-$contentBSON = bson_encode($content);
-
 var_dump($contentBSON);

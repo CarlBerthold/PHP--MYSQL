@@ -1,25 +1,25 @@
 <?php
 
-$content = file_get_contents(__DIR__ .'/assets/blindtext 1.txt');
-$paragraphs = explode("\r\n", $content); // Split the content into paragraphs
+var_dump(file_get_contents('text.txt'));
 
-$headline = array_shift($paragraphs); // Get the first paragraph as the headline by removing it from the array
-?>
+$content = file_get_contents('text.txt');
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+echo $content, PHP_EOL;
 
-    <h1><?= $headline ?></h1>
+// Was passiert, wenn eine Datei nicht existiert?
 
-    <?php foreach ($paragraphs as $paragraph): ?>
-        <p><?= $paragraph ?></p> <!-- Display each paragraph in a <p> tag -->
-    <?php endforeach; ?>
+$content = file_get_contents('meinetext.txt'); // => Warning: file_get_contents(meinetext.txt): Failed to open stream: No such file or directory in ...
 
-</body>
-</html>
+echo $content, PHP_EOL;
+
+echo 'hallo Welt';
+
+// Wie kann man prüfen, ob eine Datei existiert?
+
+if(file_exists('meinetext.txt')) {
+    $content = file_get_contents('meinetext.txt');
+} else {
+    $content = 'Datei existiert nicht!!!';
+}
+
+echo $content, PHP_EOL;
