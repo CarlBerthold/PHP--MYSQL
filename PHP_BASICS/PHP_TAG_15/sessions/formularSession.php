@@ -1,23 +1,14 @@
 <?php
-
 session_start();
-//$username = $_POST['username'];
-$username = 'carl';
-$password = '1234';
-// $username = $_POST['username'];
-// $password = $_POST['password'];
-$_SESSION['username'] = $username;
-$_SESSION['password'] = $password;
 
-//var_dump($_POST);
-
-if($_POST) 
+if(!$_POST)
 {
-    $_SESSION['username'] = $username;
-    $_SESSION['password'] = $password;
-}
+    $_SESSION['name'] = 'Login';
+    $_SESSION['username'] = [];
+    $_SESSION['password'] = [];
 
-var_dump($_SESSION['username']);
+    var_dump($_SESSION);
+}
 
 ?>
 
