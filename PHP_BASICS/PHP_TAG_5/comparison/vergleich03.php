@@ -39,3 +39,6 @@ var_dump(3 >= 3);
 var_dump(3 >= 4.0);
 var_dump(4 >= 3.0);
 var_dump(3 >= 3.0);
+
+var_dump(3 << 1);
+var_dump(3 << 2);

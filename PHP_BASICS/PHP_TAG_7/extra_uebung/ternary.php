@@ -74,3 +74,5 @@ function is_even3(int $number) : int|string {
 // echo is_odd3(2.2);
 // echo is_even3(3);
 
+
+

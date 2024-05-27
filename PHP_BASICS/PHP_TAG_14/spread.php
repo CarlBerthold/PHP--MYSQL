@@ -26,4 +26,7 @@ $time = explode(':', $arrayDate[1]);
 
 $exam = mktime($time[0], $time[1], $time[2], $date[1], $date[2], $date[0]);
 
+$daysTillExam = (int)(($exam - $now) / 60 / 60 / 24);
+
+
 echo $exam . PHP_EOL;
