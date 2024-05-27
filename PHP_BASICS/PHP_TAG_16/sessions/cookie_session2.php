@@ -1,8 +1,7 @@
 <?php
-
 session_start();
-$status = $_SESSION['status'];
-$cookie = $_COOKIE['myCookie'];
+$user = $_SESSION['user_name'];
+// $cookie = $_COOKIE['myCookie'];
 
 
 
@@ -15,8 +14,7 @@ $cookie = $_COOKIE['myCookie'];
 
 <body>
     <h1>Page Two</h1>
-    <p>Status: <?= $status ?></p>
-    <p><?= $cookie ?></p>
+    <p>Status: <?= $user ?></p>
 </body>
 
 </html>
