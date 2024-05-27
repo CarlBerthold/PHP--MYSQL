@@ -4,9 +4,6 @@ session_start();
 if(!$_POST)
 {
     $_SESSION['name'] = 'Login';
-    $_SESSION['username'] = [];
-    $_SESSION['password'] = [];
-
     var_dump($_SESSION);
 }
 
