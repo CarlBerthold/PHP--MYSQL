@@ -9,7 +9,7 @@ $userInput = <<<EOT
 </div>
 EOT;
 
-$userInput = strip_tags($userInput);
+$userInput = strip_tags($userInput, '<strong><i><em>');
 
 ?>
 <!DOCTYPE html>
