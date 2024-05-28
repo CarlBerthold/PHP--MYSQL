@@ -102,3 +102,39 @@ $files = ['bild2.jpg', 0, 13 => NULL, '0', -5, 'bild10.jpg', true, '-5', 'Bild4.
 sort($files, SORT_NATURAL | SORT_FLAG_CASE);
 
 var_dump($files);
+
+
+
+$numbers = [
+    1 => 3.5, 
+    3 => 1.5, 
+    4 => 3.25, 
+    8 => 1.75,
+    2 => -2,
+    7,
+    5,
+    0.5
+];
+
+
+
+// rekursiver Ansatz von top
+
+// $n --> übergebener Wert der gewünschten Fibonacci-Zahl
+// $i --> Zähler für Durchläufe
+// $f --> Fibonacci-Zahl
+// $nf --> neue Fibonacci-Zahl
+
+function topFibonacci( int $n, int $i = 1, int $f = 0, int $nf = 1) : int
+{
+    // echo $f . PHP_EOL; # Zwischenergebnisse
+    return $i++ <= $n ? topFibonacci( $n, $i, $nf, $nf + $f) : $f;
+}
+echo topFibonacci(0);
+
+// rekursiver Ansatz von top
+
+// $n --> übergebener Wert der gewünschten Fibonacci-Zahl
+// $i --> Zähler für Durchläufe
+// $f --> Fibonacci-Zahl
+// $nf --> neue Fibonacci-Zahl

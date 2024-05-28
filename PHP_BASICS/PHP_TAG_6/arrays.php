@@ -186,3 +186,46 @@ function solution($a, $x) {
 }
 
 echo solution($a, 'x');
+
+$numbers = [5, 3, 8, 4, 2, 1, 9, 7, 6];
+
+function bubbleSort($numbers)
+{
+    
+    $n = count($numbers);
+    for ($i = 0; $i < $n; $i++) {
+        for ($j = 0; $j < $n - 1; $j++) {
+            if ($numbers[$j] > $numbers[$j + 1]) {
+                $temp = $numbers[$j];
+                $numbers[$j] = $numbers[$j + 1];
+                $numbers[$j + 1] = $temp;
+            }
+        }
+    }
+    return $numbers;
+}
+
+$numbers = [5, 3, 8, 4, 2, 1, 9, 7, 6];
+
+function bubbleSort2(array &$numbers, $compare)
+{
+    
+    $n = count($numbers);
+    for ($i = 0; $i < $n; $i++) {
+        for ($j = 0; $j < $n - 1; $j++) {
+            if ($compare($numbers[$j], $numbers[$j + 1]) > 0) {
+                $temp = $numbers[$j];
+                $numbers[$j] = $numbers[$j + 1];
+                $numbers[$j + 1] = $temp;
+            }
+        }
+    }
+    return $numbers;
+}
+
+$numbers = [5, 3, 8, 4, 2, 1, 9, 7, 6];
+$compare = function($a, $b) {
+    return $a - $b;
+};
+
+var_dump(bubbleSort2($numbers, $compare)); 
