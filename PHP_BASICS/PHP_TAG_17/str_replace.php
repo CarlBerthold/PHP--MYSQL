@@ -29,7 +29,3 @@ $replaceString = [
 $new_text = str_replace($searchString, $replaceString, $text, $count);
 echo $new_text, PHP_EOL;
 echo 'Anzahl der Ersetzungen: ', $count, PHP_EOL;
-
-$text = 'das ist ein test';
-$ausschnitt = trim(substr($text, 3, 2));
-echo $ausschnitt, PHP_EOL;

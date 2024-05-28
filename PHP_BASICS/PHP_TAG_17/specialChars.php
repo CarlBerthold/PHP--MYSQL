@@ -1,7 +1,3 @@
-<?php
-
-
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,8 +28,7 @@
 
 </body>
 </html>
-<a href="https://www.php.net/manual/en/function.htmlspecialchars.php">htmlspecialchars()</a>
-
-<script>
+<!-- <a href="https://www.php.net/manual/en/function.htmlspecialchars.php">htmlspecialchars()</a> -->
+<!-- <script>
     console.log(navigator.userAgent);
-</script>
+</script> -->
