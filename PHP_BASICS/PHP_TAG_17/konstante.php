@@ -19,12 +19,12 @@ echo FILE_NAME_1;
  * @param mixed $value2 The second value.
  * @return mixed The sum of $value1 and $value2.
  */
-const Function1 = function($value1, $value2)
+/* const Function1 = function($value1, $value2)
 {
     return $value1 + $value2;
 };
 
-echo Function1(4,5);
+echo Function1(4,5); */
 
 
 // define constant Function2 with value of function
