@@ -24,33 +24,33 @@ $PDOStatement->execute($post);
 
 // can be called multiple times as its prepared
 // using the Post array
-$PDOStatement->execute([
+/* $PDOStatement->execute([
     $post['salutation'],
     $post['surname'],
     $post['name'],
     $post['email'],
     $post['password'],
     $post['birthday'],
-]);
+]); */
 
 
 // can be inserted like this
-$PDOStatement->execute([
+/* $PDOStatement->execute([
     'salutation' => 'Dr.',
     'surname' => 'Olaf',
     ':name' => 'Schubert',
     'email' => 'Olaf@Schubert',
     'password' => '123456',
     'birthday' => '1964-12-02',
-]);
+]); */
 
 
 // annonymus placeholder for no assosiated array
-$id = 3;
+/* $id = 3;
 $PDOStatement = $db->prepare('SELECT * FROM benutzer WHERE id = ?');
-$PDOStatement->execute([$id]);
+$PDOStatement->execute([$id]); */
 
 
 // named placeholder for assosiated array
-$PDOStatement = $db->prepare('SELECT * FROM benutzer WHERE id = :id');
-$PDOStatement->execute(['id' => $id]);
+/* $PDOStatement = $db->prepare('SELECT * FROM benutzer WHERE id = :id');
+$PDOStatement->execute(['id' => $id]); */

@@ -133,25 +133,3 @@ function mySubstringRecursive2(string $string, int $indexStart, int $indexEnd = 
     }
 }
 
-
-$foo = 2;
-echo $foo++;
-
-
-$x = 1;
-$y = 2;
-$z = 3;
-
-
-switch($x) {
-    case 0:
-    $x++;
-    $z = $x + 1;
-    break;
-    case 1:
-        $y = $z + $x;
-        break;
-    default:
-        $z = $z + $x;
-        break;
-}

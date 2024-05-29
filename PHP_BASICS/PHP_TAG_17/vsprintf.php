@@ -9,3 +9,8 @@ var_dump(vsprintf("%04d-%02d-%02d", explode('-', '1988-8-1')));
 // returnin the string
 vprintf("%04d-%02d-%02d", explode('-', '1988-8-1'));
 
+$daten = [
+    'Dieser Satz ist ein klein wenig zu lang. Vielleicht sollten wir ihn abschneiden?',
+    10 / 3,
+    'Ein weiterer Satz!',
+ ];
