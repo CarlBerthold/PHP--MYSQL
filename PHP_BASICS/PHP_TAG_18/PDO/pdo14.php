@@ -21,7 +21,7 @@ var_dump($user);
 // change the salutation of the user
 $user['salutation'] = 'Dr.';
 // runs the statement and persists the changes in the database
-$sql = 'update users set salutation ="' . $user['salutation'] . '" where id=6';
+$sql = 'update users set salutation ="' . $user['salutation'] . '" where id=4';
 // sql query 
 var_dump($sql);
 
