@@ -17,7 +17,7 @@ if(!$_POST) {
 if($_POST) {
     try {
         $users = find();
-        $infoMessage = 'Here is the result of your search';
+        $infoMessage = 'Here is the result of your search for ' . '<strong>' . $_POST['first_name'] . '</strong>';
     } catch (Exception $e) {
         $errorMessage = $e->getMessage();
     } if ($_POST['first_name'] == '') {
@@ -55,7 +55,7 @@ if($_POST) {
                     <?php foreach($users as $user) : ?>
                         <div>
                             <ul>
-                                <li><?= $user['first_name'] ?></li>
+                                <li><a href="user.php?id=<?= $user['id'] ?>"><?= $user['first_name'] ?></a></li>
                                 <li><?= $user['last_name'] ?></li>
                                 <li><?= $user['email'] ?></li>
                                 <li><?= $user['role'] ?></li>
@@ -73,7 +73,7 @@ if($_POST) {
                     <?php foreach($users as $user) : ?>
                             <div>
                                 <ul>
-                                <li><?= $user['first_name'] ?></li>
+                                <li><a href="user.php?id=<?= $user['id'] ?>"><?= $user['first_name'] ?></a></li>
                                 <li><?= $user['last_name'] ?></li>
                                 <li><?= $user['email'] ?></li>
                                 <li><?= $user['role'] ?></li>

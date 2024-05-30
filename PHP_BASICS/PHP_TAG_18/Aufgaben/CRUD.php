@@ -9,15 +9,29 @@ function globalDBConnection ()
     return $db;
 }
 
-function find() : array
+function find($id = 0) : array
 {
 
     $dbConnection = globalDBConnection();
 
-    $get = "SELECT * FROM users WHERE first_name LIKE :first_name";
-    $PDOStatement = $dbConnection->prepare($get);
-    $PDOStatement->execute(['first_name' => '%' . $_POST['first_name'] . '%']);
-    $user = $PDOStatement->fetchAll();
+
+    if($id != 0) 
+    {
+        $get = "SELECT * FROM users WHERE id = :id";
+        $PDOStatement = $dbConnection->prepare($get);
+        $PDOStatement->execute(['id' => $id]);
+        $user = $PDOStatement->fetch();
+    } else {
+        $get = "SELECT * FROM users WHERE first_name LIKE :first_name";
+        $PDOStatement = $dbConnection->prepare($get);
+        $PDOStatement->execute(['first_name' => '%' . $_POST['first_name'] . '%']);
+        $user = $PDOStatement->fetchAll();
+
+    }
+
+    
+    
+    
 
     if(!$user) {
         throw new Exception('We are sorry!!  No user found with ' . '<strong>' . $_POST['first_name'] . '</strong>'  . ' as %name%', 1);
