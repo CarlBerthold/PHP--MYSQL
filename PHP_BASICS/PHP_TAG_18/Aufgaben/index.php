@@ -1,17 +1,28 @@
 <?php
 require __DIR__ . '/CRUD.php';
 
+
+function welcomeMessage() : string
+{
+    return 'Welcome to the user management';
+}
+
+
 if(!$_POST) {
     $users = findAll();
+    $infoMessage = 'Here is everything we have in our table, browse around and have a look';
     // echo count($users);
 }
 
 if($_POST) {
-
     try {
         $users = find();
+        $infoMessage = 'Here is the result of your search';
     } catch (Exception $e) {
         $errorMessage = $e->getMessage();
+    } if ($_POST['first_name'] == '') {
+        $users = findAll();
+        $infoMessage = 'you search for nothing, here is everything we have in our table';
     } 
 }
 ?>
@@ -26,7 +37,7 @@ if($_POST) {
     <title>User_management</title>
 </head>
 <body>
-    <h1>User Management</h1>
+    <h1><?php echo welcomeMessage() ?></h1>
 
 
     <div>
@@ -40,7 +51,7 @@ if($_POST) {
     <div>
         <?php if(empty($errorMessage)) : ?>
             <?php if(!$_POST && !empty($users)) : ?>
-                <p>we just got everything we have in our table</p>
+                <p><?= $infoMessage ?></p>
                     <?php foreach($users as $user) : ?>
                         <div>
                             <ul>
@@ -57,7 +68,7 @@ if($_POST) {
 
         
             <?php if($_POST && !empty($users)) : ?>
-                <p>here the result will be shown</p>
+                <p><?= $infoMessage ?></p>
                 <div>
                     <?php foreach($users as $user) : ?>
                             <div>
