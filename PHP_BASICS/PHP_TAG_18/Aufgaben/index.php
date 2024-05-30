@@ -75,9 +75,9 @@ if($_POST) {
             <?php endif; ?>
         <?php endif; ?>
 
-        <h2><?= $errorMessage ?></h2>
+        <?php if (!empty($errorMessage)) : ?>
+            <p><?= $errorMessage ?></p>
+        <?php endif; ?>
     </div>
-
-
 </body>
 </html>
