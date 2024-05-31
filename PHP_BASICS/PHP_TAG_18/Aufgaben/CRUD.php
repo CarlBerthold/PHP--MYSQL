@@ -3,20 +3,19 @@
 require __DIR__ . '/conenection.php';
 
 
-function globalDBConnection () 
+function globalDBConnection()
 {
     global $db;
     return $db;
 }
 
-function find($id = 0) : array
+function find($id = 0): array 
 {
 
     $dbConnection = globalDBConnection();
 
 
-    if($id != 0) 
-    {
+    if ($id != 0) {
         $get = "SELECT * FROM users WHERE id = :id";
         $PDOStatement = $dbConnection->prepare($get);
         $PDOStatement->execute(['id' => $id]);
@@ -26,14 +25,9 @@ function find($id = 0) : array
         $PDOStatement = $dbConnection->prepare($get);
         $PDOStatement->execute(['first_name' => '%' . $_POST['first_name'] . '%']);
         $user = $PDOStatement->fetchAll();
-
     }
 
-    
-    
-    
-
-    if(!$user) {
+    if (!$user) {
         throw new Exception('We are sorry!!  No user found with ' . '<strong>' . $_POST['first_name'] . '</strong>'  . ' as %name%', 1);
     } else {
         return $user;
@@ -41,7 +35,7 @@ function find($id = 0) : array
 }
 
 
-function findAll()
+function findAll() : array
 {
     $dbConnection = globalDBConnection();
 
@@ -51,31 +45,59 @@ function findAll()
     return $users;
 }
 
-function create()
+function create($user) : bool
 {
-
     $dbConnection = globalDBConnection();
 
-    $create = "INSERT INTO users 
-        (first_name, last_name, email, password, role, registered_since, last_modified) 
-    VALUES 
-        (:first_name, :last_name, :email, :password, :role, :registered_since, :last_modified)";
-    $PDOStatement = $dbConnection->prepare($create);
-    $PDOStatement->execute([$create]);
+    $keys = implode(", ", array_keys($user));
+    $values = ":" . implode(", :", array_keys($user));
+
+    $sql = "INSERT INTO users ($keys) VALUES ($values)";
+
+    $PDOStatement = $dbConnection->prepare($sql);
+    $PDOStatement->execute($user);
+
+    return true;
 }
 
-function update()
+function update(array $array, $id = 0) : bool
 {
+
     $dbConnection = globalDBConnection();
 
-    $update = "UPDATE users SET first_name = 'Olaf' WHERE id :id";
+    //var_dump($array);
+
+    $update = "UPDATE users SET first_name = :first_name, last_name = :last_name, email = :email WHERE id = :id";
+
     $PDOStatement = $dbConnection->prepare($update);
-    $PDOStatement->execute([$update]);
+    //var_dump($PDOStatement);
+    $user =$PDOStatement->execute([
+        'first_name' => $_POST['first_name'],
+        'last_name' => $_POST['last_name'],
+        'email' => $_POST['email'],
+        'id' => $id
+    ]);
+
+    //var_dump($user);
+
+    if(!$user) 
+    {
+        throw new Exception('could not update your user!! Somehting is fishy', 1);
+    } else {
+        return $user;
+    }
+  
 }
 
-function delete($dbConnection)
+function delete($id) : array
 {
-    $delete = "DELETE FROM users WHERE id = :id";
-    $PDOStatement = $dbConnection->prepare($delete);
-    $PDOStatement->execute([$delete]);
+    try {
+        $dbConnection = globalDBConnection();
+        $delete = "DELETE FROM users WHERE id = :id";
+        $PDOStatement = $dbConnection->prepare($delete);
+        $PDOStatement->execute([':id' => $id]);
+        return [];
+    } catch (PDOException $e) {
+        die("Error: " . $e->getMessage());
+    }
 }

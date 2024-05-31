@@ -44,10 +44,10 @@ $PDOStatement->execute(); */
 
 
 // POST
-$post = "INSERT INTO users (first_name, last_name, email, password, role, registered_since, last_modified) 
+/* $post = "INSERT INTO users (first_name, last_name, email, password, role, registered_since, last_modified) 
     VALUES (:first_name, :last_name, :email, :password, :role, :registered_since, :last_modified)";
 
 $PDOStatement = $db->prepare($post);
 var_dump($PDOStatement);
-$PDOStatement->execute($user);
+$PDOStatement->execute($user); */
 

@@ -39,13 +39,17 @@ if($_POST) {
 <body>
     <h1><?php echo welcomeMessage() ?></h1>
 
-
     <div>
         <form action="<?php $_SERVER['PHP_SELF']?>" method="post">
             <label for="search"></label>
             <input type="text" name="first_name" id="search" placeholder="search for name">
             <button type="submit">Search</button>
+            <a href="create.php">
+                <button type="button">Create a new user</button>
+            </a>
         </form>
+        
+        
     </div>
     
     <div>
