@@ -13,11 +13,6 @@ if(!empty($_POST))
     ];
     create($user);
 }
-
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -27,8 +22,24 @@ if(!empty($_POST))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+   .flex {
+        display: flex;
+        flex-direction:column;
+    }
+
+    .actions {
+        display: flex;
+        justify-content: center;
+        margin: 10px;
+    }
+</style>
 <body>
     <h1>Create</h1>
+
+    <div class="actions">
+        <a href="index.php"><button>Back to Listing</button></a>
+    </div>
 
     <div>
         <?php if ($_POST && !empty($user)) : ?>
@@ -42,6 +53,7 @@ if(!empty($_POST))
     </div>
 
     <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
+    <fieldset class="flex">
         <label for="first_name">First Name</label>
         <input type="text" name="first_name" id="first_name" placeholder="First Name">
         
@@ -53,15 +65,15 @@ if(!empty($_POST))
        
         <label for="password">Password</label>
         <input type="password" name="password" id="password" placeholder="Password">
+    </fieldset>
        
-        <label for="role">Role</label>
-        <input type="text" name="role" id="role" placeholder="Role">
-       
-        <button type="submit">Create</button>
+        <!-- <label for="role">Role</label>
+        <input type="text" name="role" id="role" placeholder="Role"> -->
+        <div class="actions">
+            <button type="submit">Create</button>
+        </div>
     </form>
-    <div>
-        <a href="index.php">Back to Listing</a>
-    </div>
+    
     
 </body>
 </html>

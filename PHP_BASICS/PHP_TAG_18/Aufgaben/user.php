@@ -13,6 +13,11 @@ function timeFormat(...$times) : string
     return implode(', ', $formattedTimes);
 }
 
+function greeting($user) : string
+{
+    return 'Hello ' . $user['first_name'] . ' ' . $user['last_name'];
+}
+
 
 if($_GET){
     //var_dump($_GET);
@@ -55,8 +60,32 @@ if($_POST)
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User</title>
 </head>
+<style>
+    .flex {
+        display: flex;
+        flex-direction:column;
+    }
+
+    .flex > input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    fieldset {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .actions {
+        display: flex;
+        justify-content: center;
+        margin: 10px;
+    }
+
+</style>
 <body>
     <div>
+        <h2><?= greeting($user) ?></h2>
             <ul>
                 <li><?= $user['first_name']?></li>
                 <li><?= $user['last_name']?></li>
@@ -65,35 +94,42 @@ if($_POST)
                 <li><?= $user['registered_since']?></li>
                 <li><?= $user['last_modified']?></li>
             </ul>
+
+            <div class="actions">
+                <a href="index.php"><button>Back</button></a>
+                <a href="delete.php?id=<?= $user['id'] ?>"><button>Delete</button></a>
+            </div>
         
     </div>
+    
     <div>
         <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
-            <label for="first_name">First Name</label>
-            <input type="text" name="first_name" id="first_name" value="<?= $user['first_name']?>">
+            <fieldset class="flex">
+                <label for="first_name">First Name</label>
+                <input type="text" name="first_name" id="first_name" value="<?= $user['first_name']?>">
+                <label for="last_name">Last Name</label>
+                <input type="text" name="last_name" id="last_name" value="<?= $user['last_name']?>">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" value="<?= $user['email']?>" size="30">
+            </fieldset>
 
-            <label for="last_name">Last Name</label>
-            <input type="text" name="last_name" id="last_name" value="<?= $user['last_name']?>">
-            
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email" value="<?= $user['email']?>">
-
+            <fieldset>
             <label for="role">Role</label>
             <input type="text" id="role" value="<?= $user['role']?>" readonly>
             <label for="registered_since">Registered Since</label>
-
             <input type="date" id="registered_since" value="<?= timeFormat($user['registered_since'])?>" readonly>
             <label for="last_modified">Last Modified</label>
-
             <input type="date" id="last_modified" value="<?= timeFormat($user['last_modified'])?>" readonly>
-            <button type="submit">Update</button>
-        </form>
+            </fieldset>
 
-        <a href="delete.php?id=<?= $user['id'] ?>"><button>Delete</button></a>
-        
+            <div class="actions">
+                <button type="submit">Update</button>
+            </div>
+            
+        </form>
     </div>
     <div>
-        <a href="index.php">Back</a>
+        
     </div>
     
 </body>

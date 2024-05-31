@@ -2,9 +2,11 @@
 
 require_once __DIR__ . '/inc/database.php';
 
-$db = connectDB();
-
-return $db;
+function globalDBConnection()
+{
+    $db = connectDB();
+    return $db;
+}
 
 /* $id = 1;
 $user = [
