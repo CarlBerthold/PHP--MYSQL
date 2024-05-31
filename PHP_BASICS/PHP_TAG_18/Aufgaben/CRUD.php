@@ -64,9 +64,7 @@ function create($user) : bool
     $sql = "INSERT INTO users ($keys) VALUES ($values)";
 
     $PDOStatement = $dbConnection->prepare($sql);
-    $PDOStatement->execute($user);
-
-    return true;
+    return $PDOStatement->execute($user); // true or false
 }
 
 /**
@@ -114,10 +112,10 @@ function delete($id) : bool
 {
     try {
         $dbConnection = globalDBConnection();
-        $delete = "DELETE FROM users WHERE id = :id";
+        $delete = "DELETE FROM users WHERE id = ?";
         $PDOStatement = $dbConnection->prepare($delete);
-        $PDOStatement->execute([':id' => $id]);
-        return true;
+        return $PDOStatement->execute([$id]);
+       
     } catch (PDOException $e) {
         die("Error: " . $e->getMessage());
     }
