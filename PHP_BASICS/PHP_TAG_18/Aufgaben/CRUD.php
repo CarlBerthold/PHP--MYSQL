@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/conenection.php';
+require __DIR__ . '/connection.php';
 
 /**
  * Retrieves user data from the database based on the provided ID or first name.

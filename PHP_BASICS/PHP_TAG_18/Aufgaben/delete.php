@@ -29,6 +29,12 @@ if ($id) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>delete</title>
 </head>
+<style>
+    .actions {
+        display: flex;
+        margin: 10px;
+    }
+</style>
 <body>
     <h2>
         your sure you wanna delete this user ? 
@@ -46,6 +52,7 @@ if ($id) {
     </div>
     <form action="<?php echo $_SERVER['PHP_SELF'] . '?id=' . $id; ?>" method="post">
         <button type="submit">Delete</button>
+        <a href="index.php"><button>Back to Listing</button></a>
     </form>
 </body>
 </html>
