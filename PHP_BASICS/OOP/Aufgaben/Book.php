@@ -38,8 +38,9 @@ class Book
         }
 
         if($netto) {
-            $price = $this->price;
-            return $this->getNettoPrice($price);
+            $this->getNettoPrice($this->price);
+
+            return $this;
         }
        
     }
@@ -75,8 +76,8 @@ class Book
     // METHODS
     protected function getNettoPrice($price) 
     {
-        $this.$price = $this->price - ($this->price * 0.19);
-        return $this.$price;
+        $price = $this->price - ($this->price * 0.19);
+        return $price;
     }
 }
 
@@ -94,6 +95,6 @@ $title = $theManifest->getTitle();
 $description = $theManifest->getDescription();
 $author = $theManifest->getAuthor();
 $genre = $theManifest->getGenre();
-$price = $theManifest->getPrice();
+$price = $theManifest->getPrice(true, false);
 
 var_dump($title, $description, $author, $genre, $price);
