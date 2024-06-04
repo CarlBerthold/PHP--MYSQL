@@ -1,0 +1,1 @@
+a:2:{i:0;a:3:{s:7:"vorname";s:8:"Thorsten";s:4:"name";s:9:"Schneider";s:10:"geschlecht";s:1:"m";}i:1;a:3:{s:7:"vorname";s:6:"Monika";s:4:"name";s:4:"Beck";s:10:"geschlecht";s:1:"w";}}
