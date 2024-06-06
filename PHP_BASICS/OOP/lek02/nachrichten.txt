@@ -1,0 +1,1 @@
+a:2:{i:0;a:4:{s:5:"titel";s:14:"Erster Eintrag";s:6:"inhalt";s:29:"Dies ist mein erster Eintrag.";s:5:"autor";s:6:"Arthur";s:5:"datum";s:10:"16.11.2013";}i:1;a:4:{s:5:"titel";s:15:"Zweiter Eintrag";s:6:"inhalt";s:24:"Und noch ein Eintrag ...";s:5:"autor";s:6:"Edmond";s:5:"datum";s:10:"21.11.2013";}}

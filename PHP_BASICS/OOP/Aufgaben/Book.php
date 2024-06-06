@@ -2,13 +2,13 @@
 
 class Book 
 {
-    private $title = '';
+    protected $title = '';
     
-    private $description = '';
+    protected $description = '';
 
-    private $auhtor = '';
+    protected $auhtor = '';
 
-    private $genre = '';
+    protected $genre = '';
 
     protected $price = Null;
     
@@ -33,14 +33,12 @@ class Book
     }
     public function getPrice($netto = false, $brutto = true) 
     {
-        if($brutto) {
+        if($brutto && !$netto) {
             return $this->price;
         }
 
         if($netto) {
-            $this->getNettoPrice($this->price);
-
-            return $this;
+            return $this->getNettoPrice($this->price);
         }
        
     }
