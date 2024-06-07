@@ -1,25 +1,11 @@
 <?php
 
-class Kategorie
-{
-    public $kategorie = 'Hosen';
+// parent class needs to be loaded first
+require_once __DIR__ . '/inc/Kategorie.php';
+// child class needs to be loaded second
+require_once __DIR__ . '/inc/Bekleidung.php';
 
-    public function gebeKategorieAus()
-    {
-        echo $this->kategorie . PHP_EOL;
-    }
-}
 
-class Bekleidung extends Kategorie
-{
-    public $art = 'Jeans';
-    public $groesse = '34/36';
-
-    public function gebeAus()
-    {
-        echo $this->art . ' ' . $this->groesse . PHP_EOL;
-    }
-}
 
 $hose = new Bekleidung();
 /* var_dump($hose);
@@ -32,9 +18,10 @@ $kategorieObject = new Kategorie();
 $kategorieObject->gebeKategorieAus();
 
 $kategorieObject = new Kategorie();
-$kategorieObject->gebeAus(); // Now this will work as the Kategorie class inherits the gebeAus() method from the Bekleidung class
-var_dump($kategorieObject);
 
 exit;
+$kategorieObject->gebeAus(); // Now this will work as the Kategorie class inherits the gebeAus() method from the Bekleidung class
+//var_dump($kategorieObject);
+
 
 
