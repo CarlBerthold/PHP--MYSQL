@@ -1,5 +1,6 @@
 
 *.log
 notizen.md
-node_modules/
+node_modules/*
+Carbon/vendor/
 
