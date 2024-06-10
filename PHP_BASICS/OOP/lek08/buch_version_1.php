@@ -18,7 +18,7 @@ class Autor
 class Buch
 {
     protected $titel = '';
-    protected $autor new Autor(); // kein Standardwert
+    protected $autor; // kein Standardwert
 
     public function getTitel()
     {

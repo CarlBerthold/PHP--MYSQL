@@ -42,7 +42,7 @@ $preferedLanguage = 'de';
 // Ausgabe: Auto, rot: 25000 Euro
 
 $languages = array_column($article, 'language');
-$index = array_search($preferedLanguage, $languages)? : 0;
+$index = array_search($preferedLanguage, $languages);
 
 //var_dump($index);
 

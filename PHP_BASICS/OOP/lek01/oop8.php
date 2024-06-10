@@ -6,7 +6,7 @@ require_once __DIR__ . '/inc/Konto.php';
 $sparbuch1 = new stdClass;
 $sparbuch1->glaeubiger = 'Jan Teriete';
 $sparbuch1->guthaben = 100;
-$sparbuch1->functionTest();
+
 
 var_dump($sparbuch1);
 

@@ -129,7 +129,6 @@ var_dump($test);
 
 $originalData = get_class_vars('Test');
 
-
 $daten = $test->getAttributes();
 
 var_dump($daten);

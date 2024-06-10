@@ -1,23 +1,45 @@
 <?php
 
-class User 
+
+class Authentication
 {
-    protected $id = NULL;
-    protected $first_name = '';
-    protected $last_name = '';
-    protected $email = '';
+
     protected $password = '';
-    protected $role = 'user';
-    protected $registered_since = '';
-    protected $last_modified = '';
+    public function setPassword($password)
+    {
+        $this->password = password_hash($password, PASSWORD_DEFAULT);
+    }
 
+    public function verifyPassword($password)
+    {
+        // $result = password_verify($password, $this->getPassword()); // äquivalent
+        $result = password_verify($password, $this->password);
 
+        return $result;
+    }
+
+}
+
+class User extends Authentication
+{
+    protected string $firstname = '';
+    protected string $lastname = '';
+    protected string $email = '';
+    //
+    protected string $role = 'user';
+    protected string $createdAt = '';
+    protected string $updatedAt = '';
+
+    // public function getPassword($password);
+
+    # CONSTRUCT
     public function __construct(array $data = [])
     {
         if($data) $this->setAttributes($data);
     }
 
 
+    # build SETTER
     public function setAttributes(array $data = []) 
     {
         if($data) {
@@ -33,6 +55,7 @@ class User
         }   
     }
 
+    # build GETTER
     public function getAttributes($data) 
     {
         $data = get_object_vars($this);
@@ -42,6 +65,8 @@ class User
         return $data;
     }
 
+    # Magic Methods
+    // __call() is triggered when invoking inaccessible methods in an object context.
     public function __call($name, $arguments)
     {
 
@@ -68,35 +93,49 @@ class User
         }
     }
 
+    // __set() is run when writing data to inaccessible properties.
     public function __set($name, $arguments)
     {
         return $this->setAttributes([$name => $arguments[0]]);
     }
 
+    // __get() is utilized for reading data from inaccessible properties.
     public function __get($name)
     {
         if(property_exists($this, $name)) {
             return $this->$name;
         }
     }
-
-    public function getGrossPrice()
-    {
-        return round($this->netPrice * (1 + $this->tax[(int) $this->ebook] / 100), 2);
-    }
-
-    public function setGrossPrice($grossPrice)
-    {
-        $this->netPrice = round($grossPrice / (1 + $this->tax[(int) $this->ebook] / 100), 2);
-
-        return $this;
-    }
-
-    /**
-     * Get the value of tax
-     */ 
-    public function getTax()
-    {
-        return $this->ebook ? $this->tax[1] : $this->tax[0];
-    }
 }
+
+
+
+
+
+
+
+/* $carl = new User();
+$setPassword = $carl->setPassword('15456');
+// echo $password;
+var_dump($setPassword);
+ */
+/* $auth = new Authentication();
+$user = new User();
+$auth->setPassword('15456');
+$result = $auth->verifyPassword('15456', $user->password);
+var_dump($result);
+ */
+
+ $auth = new Authentication();
+    $user = new User();
+    /* $user->setPassword('15456');
+    $isVerified = $user->verifyPassword('15456');
+    var_dump($user);
+    echo $isVerified ? 'Password is correct' : 'Password is incorrect'; */
+
+    $auth->setPassword('15456');
+    $isVerified = $auth->verifyPassword('15456');
+    var_dump($auth);
+    echo $isVerified ? 'Password is correct' : 'Password is incorrect';
+
+   

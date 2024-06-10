@@ -15,3 +15,8 @@ class Person
         echo $address->getClassName();
     }
 }
+
+$carl = new Person();
+$adresse = new Address();
+
+$carl->setAddress($adresse);

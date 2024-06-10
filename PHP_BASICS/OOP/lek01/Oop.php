@@ -14,8 +14,3 @@ var_dump($sparbuch);
 $sparbuch['guthaben'] += 99.89;
 
 var_dump($sparbuch);
-
-class Sparbuch {
-
-
-}
