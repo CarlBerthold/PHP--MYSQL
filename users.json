@@ -6,8 +6,8 @@
         "email": "john.doe@example.com",
         "password": "password123",
         "role": "user",
-        "registered_since": "2021-01-01",
-        "last_modified": "2021-01-01"
+        "created_at": "2021-01-01",
+        "updated_at": "2021-01-01"
     },
     {
         "id": 2,
@@ -16,8 +16,8 @@
         "email": "jane.smith@example.com",
         "password": "password456",
         "role": "admin",
-        "registered_since": "2021-01-02",
-        "last_modified": "2021-01-02"
+        "created_at": "2021-01-02",
+        "updated_at": "2021-01-02"
     },
     {
         "id": 3,
@@ -26,8 +26,8 @@
         "email": "alice.johnson@example.com",
         "password": "password789",
         "role": "user",
-        "registered_since": "2021-01-03",
-        "last_modified": "2021-01-03"
+        "created_at": "2021-01-03",
+        "updated_at": "2021-01-03"
     },
     {
         "id": 4,
@@ -36,8 +36,8 @@
         "email": "bob.brown@example.com",
         "password": "password321",
         "role": "admin",
-        "registered_since": "2021-01-04",
-        "last_modified": "2021-01-04"
+        "created_at": "2021-01-04",
+        "updated_at": "2021-01-04"
     },
     {
         "id": 5,
@@ -46,8 +46,8 @@
         "email": "charlie.davis@example.com",
         "password": "password654",
         "role": "inactive",
-        "registered_since": "2021-01-05",
-        "last_modified": "2021-01-05"
+        "created_at": "2021-01-05",
+        "updated_at": "2021-01-05"
     },
     {
         "id": 6,
@@ -56,8 +56,8 @@
         "email": "diana.evans@example.com",
         "password": "password987",
         "role": "user",
-        "registered_since": "2021-01-06",
-        "last_modified": "2021-01-06"
+        "created_at": "2021-01-06",
+        "updated_at": "2021-01-06"
     },
     {
         "id": 7,
@@ -66,8 +66,8 @@
         "email": "ethan.foster@example.com",
         "password": "password1234",
         "role": "admin",
-        "registered_since": "2021-01-07",
-        "last_modified": "2021-01-07"
+        "created_at": "2021-01-07",
+        "updated_at": "2021-01-07"
     },
     {
         "id": 8,
@@ -76,8 +76,8 @@
         "email": "fiona.garcia@example.com",
         "password": "password5678",
         "role": "user",
-        "registered_since": "2021-01-08",
-        "last_modified": "2021-01-08"
+        "created_at": "2021-01-08",
+        "updated_at": "2021-01-08"
     },
     {
         "id": 9,
@@ -86,8 +86,8 @@
         "email": "george.harris@example.com",
         "password": "password8765",
         "role": "user",
-        "registered_since": "2021-01-09",
-        "last_modified": "2021-01-09"
+        "created_at": "2021-01-09",
+        "updated_at": "2021-01-09"
     },
     {
         "id": 10,
@@ -96,8 +96,8 @@
         "email": "hannah.jackson@example.com",
         "password": "password4321",
         "role": "admin",
-        "registered_since": "2021-01-10",
-        "last_modified": "2021-01-10"
+        "created_at": "2021-01-10",
+        "updated_at": "2021-01-10"
     },
     {
         "id": 11,
@@ -106,8 +106,8 @@
         "email": "ian.king@example.com",
         "password": "password6543",
         "role": "user",
-        "registered_since": "2021-01-11",
-        "last_modified": "2021-01-11"
+        "created_at": "2021-01-11",
+        "updated_at": "2021-01-11"
     },
     {
         "id": 12,
@@ -116,8 +116,8 @@
         "email": "julia.lewis@example.com",
         "password": "password7890",
         "role": "inactive",
-        "registered_since": "2021-01-12",
-        "last_modified": "2021-01-12"
+        "created_at": "2021-01-12",
+        "updated_at": "2021-01-12"
     },
     {
         "id": 13,
@@ -126,8 +126,8 @@
         "email": "kevin.martinez@example.com",
         "password": "password0987",
         "role": "admin",
-        "registered_since": "2021-01-13",
-        "last_modified": "2021-01-13"
+        "created_at": "2021-01-13",
+        "updated_at": "2021-01-13"
     },
     {
         "id": 14,
@@ -136,8 +136,8 @@
         "email": "laura.nelson@example.com",
         "password": "password5432",
         "role": "user",
-        "registered_since": "2021-01-14",
-        "last_modified": "2021-01-14"
+        "created_at": "2021-01-14",
+        "updated_at": "2021-01-14"
     },
     {
         "id": 15,
@@ -146,8 +146,8 @@
         "email": "michael.owen@example.com",
         "password": "password7654",
         "role": "user",
-        "registered_since": "2021-01-15",
-        "last_modified": "2021-01-15"
+        "created_at": "2021-01-15",
+        "updated_at": "2021-01-15"
     },
     {
         "id": 16,
@@ -156,8 +156,8 @@
         "email": "nina.perez@example.com",
         "password": "password3456",
         "role": "admin",
-        "registered_since": "2021-01-16",
-        "last_modified": "2021-01-16"
+        "created_at": "2021-01-16",
+        "updated_at": "2021-01-16"
     },
     {
         "id": 17,
@@ -166,8 +166,8 @@
         "email": "oscar.quinn@example.com",
         "password": "password2345",
         "role": "user",
-        "registered_since": "2021-01-17",
-        "last_modified": "2021-01-17"
+        "created_at": "2021-01-17",
+        "updated_at": "2021-01-17"
     },
     {
         "id": 18,
@@ -176,8 +176,8 @@
         "email": "paula.roberts@example.com",
         "password": "password6789",
         "role": "user",
-        "registered_since": "2021-01-18",
-        "last_modified": "2021-01-18"
+        "created_at": "2021-01-18",
+        "updated_at": "2021-01-18"
     },
     {
         "id": 19,
@@ -186,8 +186,8 @@
         "email": "quincy.scott@example.com",
         "password": "password9876",
         "role": "admin",
-        "registered_since": "2021-01-19",
-        "last_modified": "2021-01-19"
+        "created_at": "2021-01-19",
+        "updated_at": "2021-01-19"
     },
     {
         "id": 20,
@@ -196,8 +196,8 @@
         "email": "rachel.taylor@example.com",
         "password": "password12345",
         "role": "user",
-        "registered_since": "2021-01-20",
-        "last_modified": "2021-01-20"
+        "created_at": "2021-01-20",
+        "updated_at": "2021-01-20"
     },
     {
         "id": 21,
@@ -206,7 +206,7 @@
         "email": "sam.upton@example.com",
         "password": "password54321",
         "role": "user",
-        "registered_since": "2021-01-21",
-        "last_modified": "2021-01-21"
+        "created_at": "2021-01-21",
+        "updated_at": "2021-01-21"
     }
 ]

@@ -59,12 +59,12 @@ if($_POST) {
                     <?php foreach($users as $user) : ?>
                         <div>
                             <ul>
-                                <li><a href="user.php?id=<?= $user['id'] ?>"><?= $user['first_name'] ?></a></li>
-                                <li><?= $user['last_name'] ?></li>
+                                <li><a href="user.php?id=<?= $user['id'] ?>"><?= $user['firstname'] ?></a></li>
+                                <li><?= $user['lastname'] ?></li>
                                 <li><?= $user['email'] ?></li>
                                 <li><?= $user['role'] ?></li>
-                                <li><?= $user['registered_since'] ?></li>
-                                <li><?= $user['last_modified'] ?></li>
+                                <li><?= $user['created_at'] ?></li>
+                                <li><?= $user['updated_at'] ?></li>
                             </ul>
                         </div>
                     <?php endforeach; ?>
@@ -77,12 +77,12 @@ if($_POST) {
                     <?php foreach($users as $user) : ?>
                             <div>
                                 <ul>
-                                <li><a href="user.php?id=<?= $user['id'] ?>"><?= $user['first_name'] ?></a></li>
-                                <li><?= $user['last_name'] ?></li>
+                                <li><a href="user.php?id=<?= $user['id'] ?>"><?= $user['firstname'] ?></a></li>
+                                <li><?= $user['lastname'] ?></li>
                                 <li><?= $user['email'] ?></li>
                                 <li><?= $user['role'] ?></li>
-                                <li><?= $user['registered_since'] ?></li>
-                                <li><?= $user['last_modified'] ?></li>
+                                <li><?= $user['created_at'] ?></li>
+                                <li><?= $user['updated_at'] ?></li>
                             </ul>
                         </div>
                     <?php endforeach; ?>

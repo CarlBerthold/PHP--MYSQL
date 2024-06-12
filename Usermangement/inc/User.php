@@ -60,7 +60,7 @@ class User extends Authentication
     {
         $data = get_object_vars($this);
 
-        $data['tax'] = $this->getTax();
+        // $data['tax'] = $this->getTax();
 
         return $data;
     }
@@ -69,8 +69,6 @@ class User extends Authentication
     // __call() is triggered when invoking inaccessible methods in an object context.
     public function __call($name, $arguments)
     {
-
-        //OLI
 
         if(str_starts_with($name, 'get')) {
             $attribute = lcfirst(substr($name, 3));
@@ -127,15 +125,22 @@ var_dump($result);
  */
 
  $auth = new Authentication();
-    $user = new User();
-    /* $user->setPassword('15456');
-    $isVerified = $user->verifyPassword('15456');
-    var_dump($user);
-    echo $isVerified ? 'Password is correct' : 'Password is incorrect'; */
+ $user = new User();
+ $name = $user->setFirstname('Carl');
+ $lastname = $user->setLastname('Müller');
 
-    $auth->setPassword('15456');
-    $isVerified = $auth->verifyPassword('15456');
-    var_dump($auth);
-    echo $isVerified ? 'Password is correct' : 'Password is incorrect';
+
+/* $user->setPassword('15456');
+$isVerified = $user->verifyPassword('15456');
+var_dump($user);
+echo $isVerified ? 'Password is correct' : 'Password is incorrect'; */
+
+$auth->setPassword('15456');
+$isVerified = $auth->verifyPassword('15456');
+
+var_dump($auth, $user);
+
+
+echo $isVerified ? 'Password is correct' : 'Password is incorrect';
 
    

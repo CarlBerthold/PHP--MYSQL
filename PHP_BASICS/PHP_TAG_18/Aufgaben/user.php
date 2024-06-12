@@ -15,7 +15,7 @@ function timeFormat(...$times) : string
 
 function greeting($user) : string
 {
-    return 'Hello ' . $user['first_name'] . ' ' . $user['last_name'];
+    return 'Hello ' . $user['firstname'] . ' ' . $user['lastname'];
 }
 
 
@@ -23,27 +23,27 @@ if($_GET){
     //var_dump($_GET);
     $id = $_GET['id'];
     $user = find($id);
-    //timeFormat($user['registered_since'], $user['last_modified']);
-    //echo $user['last_modified'];
+    //timeFormat($user['created_at'], $user['updated_at']);
+    //echo $user['updated_at'];
     //var_dump($user);    
 } 
 
 if($_POST)
 {
     if(
-        $_POST['first_name'] == '' ||
-        $_POST['last_name'] == '' ||
+        $_POST['firstname'] == '' ||
+        $_POST['lastname'] == '' ||
         $_POST['email'] == ''
     ) {
         $errorMessage = 'Please fill in all the fields';
     }
-    // check if the first_name from the POST is empty if return $user['first_name']
+    // check if the firstname from the POST is empty if return $user['firstname']
 
     //var_dump($_POST);
-    $user['first_name'] = $_POST['first_name'] ?? $user['first_name'];
-    $user['last_name'] = $_POST['last_name'] ?? $user['last_name'];
+    $user['firstname'] = $_POST['firstname'] ?? $user['firstname'];
+    $user['lastname'] = $_POST['lastname'] ?? $user['lastname'];
     $user['email'] = $_POST['email'] ?? $user['email'];
-    $user['last_modified'] = date('Y-m-d H:i:s');
+    $user['updated_at'] = date('Y-m-d H:i:s');
     $user['id'] = $id ?? find();
     
     update($user, $user['id']);
@@ -87,12 +87,12 @@ if($_POST)
     <div>
         <h2><?= greeting($user) ?></h2>
             <ul>
-                <li><?= $user['first_name']?></li>
-                <li><?= $user['last_name']?></li>
+                <li><?= $user['firstname']?></li>
+                <li><?= $user['lastname']?></li>
                 <li><?= $user['email']?></li>
                 <li><?= $user['role']?></li>
-                <li><?= $user['registered_since']?></li>
-                <li><?= $user['last_modified']?></li>
+                <li><?= $user['created_at']?></li>
+                <li><?= $user['updated_at']?></li>
             </ul>
 
             <div class="actions">
@@ -105,10 +105,10 @@ if($_POST)
     <div>
         <form action="<?php $_SERVER['PHP_SELF'] ?>" method="post">
             <fieldset class="flex">
-                <label for="first_name">First Name</label>
-                <input type="text" name="first_name" id="first_name" value="<?= $user['first_name']?>">
-                <label for="last_name">Last Name</label>
-                <input type="text" name="last_name" id="last_name" value="<?= $user['last_name']?>">
+                <label for="firstname">First Name</label>
+                <input type="text" name="firstname" id="firstname" value="<?= $user['firstname']?>">
+                <label for="lastname">Last Name</label>
+                <input type="text" name="lastname" id="lastname" value="<?= $user['lastname']?>">
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" value="<?= $user['email']?>" size="30">
             </fieldset>
@@ -116,10 +116,10 @@ if($_POST)
             <fieldset>
             <label for="role">Role</label>
             <input type="text" id="role" value="<?= $user['role']?>" readonly>
-            <label for="registered_since">Registered Since</label>
-            <input type="date" id="registered_since" value="<?= timeFormat($user['registered_since'])?>" readonly>
-            <label for="last_modified">Last Modified</label>
-            <input type="date" id="last_modified" value="<?= timeFormat($user['last_modified'])?>" readonly>
+            <label for="created_at">Registered Since</label>
+            <input type="date" id="created_at" value="<?= timeFormat($user['created_at'])?>" readonly>
+            <label for="updated_at">Last Modified</label>
+            <input type="date" id="updated_at" value="<?= timeFormat($user['updated_at'])?>" readonly>
             </fieldset>
 
             <div class="actions">
