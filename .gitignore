@@ -4,4 +4,5 @@ notizen.md
 node_modules/*
 Carbon/vendor/
 Faker/vendor/
+Usermanagement/inc/vendor/
 
