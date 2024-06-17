@@ -17,7 +17,7 @@ function generateUser(int $amount = 1, bool $admin = false) :array
         $user['firstname'] = $faker->firstName();
         $user['lastname'] = $faker->lastName();
         $user['email'] = $faker->email();
-        $user['password'] = password_hash($faker->password(), PASSWORD_DEFAULT);
+        $user['password'] = $faker->password();
         if($admin) {
             $user['role'] = 'admin';
         } else {
@@ -27,6 +27,7 @@ function generateUser(int $amount = 1, bool $admin = false) :array
       
         $users[] = $user;
     }
+    var_dump($users);
 
     return $users;
 }

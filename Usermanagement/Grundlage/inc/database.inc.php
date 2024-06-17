@@ -10,7 +10,7 @@ function connectDB(): PDO
     $host = 'localhost';
     $dbname = 'user_management';
     $dbuser = 'root';
-    $dbpassword = 'carl';
+    $dbpassword = '';
     $options = [
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // default - für Entwicklung

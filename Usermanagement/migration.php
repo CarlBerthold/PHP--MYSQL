@@ -29,7 +29,8 @@ $createTable = $db->prepare($create);
 $createTable->execute();
 
 
-// var_dump($users);
+
+var_dump($users);
 
 $insert = "INSERT INTO users (firstname, lastname, email, password, role) VALUES (?, ?, ?, ?, ?)";
 
@@ -43,9 +44,24 @@ foreach ($data as $members) {
         $members['firstname'],
         $members['lastname'],
         $members['email'],
-        $members['password'],
+        $members['password'] = password_hash($members['password'], PASSWORD_DEFAULT),
         $members['role'],
     ]);
 }
 
-echo "Data inserted successfully!";
+ echo "Data inserted successfully!";
+
+/* 
+$user1 = [
+    'firstname' => 'Tim',
+    'lastname' => 'Taler',
+    'email' => 'taler.tim@tim.de',
+    'password' => password_hash('test', PASSWORD_DEFAULT),
+    'role' => 'admin',
+];
+
+$insert = "INSERT INTO users (firstname, lastname, email, password, role) VALUES (?, ?, ?, ?, ?)";
+
+$statement = $db->prepare($insert);
+
+$statement->execute(); */
